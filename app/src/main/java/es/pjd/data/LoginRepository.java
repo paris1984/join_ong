@@ -1,5 +1,9 @@
 package es.pjd.data;
 
+import android.app.Activity;
+
+import java.util.concurrent.Executor;
+
 import es.pjd.data.model.LoggedInUser;
 
 /**
@@ -43,9 +47,9 @@ public class LoginRepository {
         // @see https://developer.android.com/training/articles/keystore
     }
 
-    public Result<LoggedInUser> login(String username, String password) {
+    public Result<LoggedInUser> login(String username, String password, Activity parent) {
         // handle login
-        Result<LoggedInUser> result = dataSource.login(username, password);
+        Result<LoggedInUser> result = dataSource.login(username, password,parent);
         if (result instanceof Result.Success) {
             setLoggedInUser(((Result.Success<LoggedInUser>) result).getData());
         }

@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "533223266474",
+    "firebase_url": "https://joinong-b5ec0.firebaseio.com",
+    "project_id": "joinong-b5ec0",
+    "storage_bucket": "joinong-b5ec0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533223266474:android:d07c9dc5aee476a4d298d3",
+        "android_client_info": {
+          "package_name": "es.pjd"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "533223266474-ch8g45grsva2oa5bt5r2h083t3nhbjfl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "es.pjd",
+            "certificate_hash": "6c16d3041bd92ac375d25c00291d803455413d1b"
+          }
+        },
+        {
+          "client_id": "533223266474-4jst3egk2v4th61pshjsanfvecnenj4o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "es.pjd",
+            "certificate_hash": "b8525ab27146ff714be9afee726de5ed15227ce2"
+          }
+        },
+        {
+          "client_id": "533223266474-p55di41dencbtaf33f5h2nv7g6ga9h73.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACscsD76iuuVJORyKIlZfwAc9X6_-WsDc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "533223266474-p55di41dencbtaf33f5h2nv7g6ga9h73.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
