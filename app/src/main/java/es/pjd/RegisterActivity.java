@@ -71,6 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
 
                             FirebaseUser user = mAuth.getCurrentUser();
+
                             Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
                             startActivity(intent);
                         } else {
