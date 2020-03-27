@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginBottom="40dp"
+            android:clickable="true"
             app:cardCornerRadius="6dp"
             app:cardPreventCornerOverlap="false"
             app:cardUseCompatPadding="true">
@@ -45,11 +46,13 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:clickable="true"
             app:cardCornerRadius="6dp"
             app:cardPreventCornerOverlap="false"
             app:cardUseCompatPadding="true">
 
             <ImageView
+                android:id="@+id/voluntario"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:onClick="onClickVol"

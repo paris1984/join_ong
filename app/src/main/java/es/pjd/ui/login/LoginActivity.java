@@ -24,6 +24,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Objects;
+
 import es.pjd.MenuActivity;
 import es.pjd.OrgVolActivity;
 import es.pjd.R;
@@ -48,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
         final TextView registerText = findViewById(R.id.registrar);
         mAuth = FirebaseAuth.getInstance();
+
         //
 
         registerText.setOnClickListener(new View.OnClickListener() {
