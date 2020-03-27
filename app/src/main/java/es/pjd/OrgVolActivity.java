@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 
+import java.util.Objects;
+
 public class OrgVolActivity extends AppCompatActivity {
 
     @Override
@@ -15,6 +17,13 @@ public class OrgVolActivity extends AppCompatActivity {
         setContentView(R.layout.activity_org_vol);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return false;
     }
 
 }
