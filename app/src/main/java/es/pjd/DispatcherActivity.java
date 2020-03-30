@@ -1,26 +1,21 @@
 package es.pjd;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
-
 import android.view.View;
 import android.widget.ImageView;
 
 import java.util.Objects;
 
-public class OrgVolActivity extends AppCompatActivity {
+public class DispatcherActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_org_vol);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setContentView(R.layout.activity_dispatcher);
+
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         final ImageView voluntario = findViewById(R.id.voluntario);
@@ -31,7 +26,6 @@ public class OrgVolActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 
     @Override
@@ -39,5 +33,4 @@ public class OrgVolActivity extends AppCompatActivity {
         onBackPressed();
         return false;
     }
-
 }
