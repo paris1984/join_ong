@@ -15,22 +15,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#8c000000"
-            android:padding="10dp"
-            android:text="@string/title_activity_volunteer_reg"
-            android:textColor="#ffe3e3e3"
-            android:textSize="28sp"
-            android:textStyle="normal"
-            android:textAlignment="center"/>
-
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="6dp"
             app:cardPreventCornerOverlap="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#8c000000"
+                android:padding="10dp"
+                android:text="@string/header_activity_volunteer_reg"
+                android:textColor="#ffe3e3e3"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                android:textAlignment="center"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -38,7 +38,8 @@
                 android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="50sp">
 
                 <EditText
                     android:id="@+id/volName"
@@ -48,7 +49,8 @@
                     android:inputType="text"
                     android:hint="@string/text_name_volunteer"
                     android:layout_marginTop="15dp"
-                    android:selectAllOnFocus="true"/>
+                    android:selectAllOnFocus="true"
+                    android:textSize="14sp"/>
 
                 <EditText
                     android:id="@+id/volNick"
@@ -58,7 +60,8 @@
                     android:inputType="text"
                     android:hint="@string/text_nick_volunteer"
                     android:layout_marginTop="10dp"
-                    android:selectAllOnFocus="true"/>
+                    android:selectAllOnFocus="true"
+                    android:textSize="14sp"/>
 
                 <EditText
                     android:id="@+id/volEmail"
@@ -68,7 +71,8 @@
                     android:inputType="textEmailAddress"
                     android:hint="@string/text_email_volunteer"
                     android:layout_marginTop="10dp"
-                    android:selectAllOnFocus="true"/>
+                    android:selectAllOnFocus="true"
+                    android:textSize="14sp"/>
 
                 <EditText
                     android:id="@+id/volPassword"
@@ -78,7 +82,8 @@
                     android:inputType="textPassword"
                     android:hint="@string/text_password_volunteer"
                     android:layout_marginTop="10dp"
-                    android:selectAllOnFocus="true"/>
+                    android:selectAllOnFocus="true"
+                    android:textSize="14sp"/>
 
                 <EditText
                     android:id="@+id/volConfPassword"
@@ -88,7 +93,8 @@
                     android:inputType="textPassword"
                     android:hint="@string/text_re_password_volunteer"
                     android:layout_marginTop="10dp"
-                    android:selectAllOnFocus="true"/>
+                    android:selectAllOnFocus="true"
+                    android:textSize="14sp"/>
 
                 <EditText
                     android:id="@+id/volTel"
@@ -98,7 +104,8 @@
                     android:inputType="phone"
                     android:hint="@string/text_phone_volunteer"
                     android:layout_marginTop="10dp"
-                    android:selectAllOnFocus="true"/>
+                    android:selectAllOnFocus="true"
+                    android:textSize="14sp"/>
 
                 <EditText
                     android:id="@+id/identOrg"
@@ -109,7 +116,8 @@
                     android:hint="@string/text_iden_organization"
                     android:layout_marginTop="10dp"
                     android:visibility="visible"
-                    android:selectAllOnFocus="true"/>
+                    android:selectAllOnFocus="true"
+                    android:textSize="14sp"/>
 
                 <Button
                     android:id="@+id/volBtnAccept"

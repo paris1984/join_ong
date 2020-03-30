@@ -57,6 +57,7 @@
 
     <!-- View activity_organization_reg-->
     <string name="title_activity_organization_reg">Registro Organización</string>
+    <string name="header_activity_organization_reg">Datos Organización</string>
     <string name="text_name_organization">Nombre organización</string>
     <string name="text_description_organization">Descripción organización</string>
     <string name="text_email_organization">Email organización</string>
@@ -65,6 +66,7 @@
 
     <!-- View activity_volunteer_reg-->
     <string name="title_activity_volunteer_reg">Registro Voluntario</string>
+    <string name="header_activity_volunteer_reg">Datos Voluntario</string>
     <string name="text_name_volunteer">Nombre voluntario</string>
     <string name="text_nick_volunteer">Nick voluntario</string>
     <string name="text_email_volunteer">Email voluntario</string>
