@@ -25,10 +25,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import es.pjd.viewmodel.UserViewModel;
+
 public class RegisterActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    private FirebaseFirestore db;
+    private UserViewModel userViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,19 +51,25 @@ public class RegisterActivity extends AppCompatActivity {
         telefono = findViewById(R.id.telefono);
         email = findViewById(R.id.email);
         password = findViewById(R.id.passwordR);
-        repassword = findViewById(R.id.repasswordR);
+        repassword = findViewById(R.id.repasswordR); //TODO hacer comprobación de password.
         //
 
         //añadido de acciones a los objetos
         registrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                registrar(nombre.getText().toString(),apellidos.getText().toString(),email.getText().toString(),password.getText().toString());
+                registrar(nombre.getText().toString(),
+                        apellidos.getText().toString(),
+                        email.getText().toString(),
+                        password.getText().toString(),
+                        telefono.getText().toString(),
+                        null); //TODO añadir la vista para el nick y recuperarla.
             }
         });
         //
         mAuth = FirebaseAuth.getInstance();
-        db = FirebaseFirestore.getInstance();
+
+        userViewModel = new UserViewModel();
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
     }
@@ -72,7 +80,7 @@ public class RegisterActivity extends AppCompatActivity {
         return false;
     }
 
-    private void registrar(String nombre, String apellidos,String email, String password){
+    private void registrar(final String nombre, final String apellidos, final String email, String password, final String phone, final String nick){
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -80,7 +88,9 @@ public class RegisterActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
 
                             FirebaseUser user = mAuth.getCurrentUser();
+                            userViewModel.writeNewUser(nombre, apellidos, email, phone, nick );
 
+                            //TODO abrir intent o esperar ver si no falla el registro?
                             Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
                             startActivity(intent);
                         } else {
@@ -89,27 +99,9 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.makeText(RegisterActivity.this, "Register fail:"+task.getException().getMessage(),
                                     Toast.LENGTH_SHORT).show();
                         }
+                    }
+                });
 
-                        // ...
-                    }
-                });
-        Map<String, Object> user = new HashMap<>();
-        user.put("name","nombre");
-        user.put("surname","apellidos");
-        db.collection("users")
-                .add(user)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d("INfo", "DocumentSnapshot added with ID: " + documentReference.getId());
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w("Error", "Error adding document", e);
-                    }
-                });
 
     }
 }
