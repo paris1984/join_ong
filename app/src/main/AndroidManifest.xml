@@ -9,11 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DispatcherActivity"></activity>
-        <activity
-            android:name=".OrgVolActivity"
-            android:label="@string/title_activity_org_vol"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".DispatcherActivity"
+            android:label="@string/title_activity_org_vol"></activity>
         <activity android:name=".RegisterActivity" />
         <activity
             android:name=".MenuActivity"

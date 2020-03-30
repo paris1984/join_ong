@@ -24,13 +24,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import java.util.Objects;
-
+import es.pjd.DispatcherActivity;
 import es.pjd.MenuActivity;
-import es.pjd.OrgVolActivity;
 import es.pjd.R;
-import es.pjd.RegisterActivity;
-
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -56,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
         registerText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), OrgVolActivity.class);
+                Intent intent = new Intent(getApplicationContext(), DispatcherActivity.class);
                 startActivity(intent);
             }
         });
