@@ -63,7 +63,7 @@ public class RegisterActivity extends AppCompatActivity {
                         email.getText().toString(),
                         password.getText().toString(),
                         telefono.getText().toString(),
-                        null); //TODO añadir la vista para el nick y recuperarla.
+                        ""); //TODO añadir la vista para el nick y recuperarla.
             }
         });
         //
@@ -95,7 +95,6 @@ public class RegisterActivity extends AppCompatActivity {
                             startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.
-
                             Toast.makeText(RegisterActivity.this, "Register fail:"+task.getException().getMessage(),
                                     Toast.LENGTH_SHORT).show();
                         }

@@ -1,13 +1,19 @@
 package es.pjd;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
+import androidx.annotation.Nullable;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -16,9 +22,15 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import java.util.List;
+
+import es.pjd.data.model.User;
+import es.pjd.viewmodel.UserViewModel;
+
 public class MenuActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    private UserViewModel myUserViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +46,9 @@ public class MenuActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        TextView customGreet = findViewById(R.id.customGreet);
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -45,6 +60,17 @@ public class MenuActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        myUserViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
+        myUserViewModel.getUserByUid(FirebaseAuth.getInstance().getUid()).observe(this, new Observer<List<User>>() {
+            @Override
+            public void onChanged(List<User> users) {
+                if(users != null && !users.isEmpty()){
+                    String customGreetText = String.format(getResources().getString(R.string.custom_greet), users.get(0).getName());
+                    ((TextView)findViewById(R.id.customGreet)).setText(customGreetText);
+                }
+            }
+        });
     }
 
     @Override
