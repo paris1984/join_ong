@@ -23,14 +23,15 @@ public class OrgVolActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-        ImageView voluntario = findViewById(R.id.voluntario);
-        voluntario.setOnClickListener(new View.OnClickListener() {
+        final ImageView voluntario = findViewById(R.id.voluntario);
+        voluntario.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),RegisterActivity.class);
                 startActivity(intent);
             }
         });
+
     }
 
     @Override
