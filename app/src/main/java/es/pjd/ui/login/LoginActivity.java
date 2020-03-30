@@ -30,6 +30,7 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.auth.FirebaseUser;
 
+import es.pjd.DispatcherActivity;
 import es.pjd.MenuActivity;
 import es.pjd.OrgVolActivity;
 import es.pjd.R;
@@ -61,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
         registerText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), OrgVolActivity.class);
+                Intent intent = new Intent(getApplicationContext(), DispatcherActivity.class);
                 startActivity(intent);
             }
         });
