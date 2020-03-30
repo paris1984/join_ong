@@ -19,20 +19,14 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseException;
-import com.google.firebase.FirebaseNetworkException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.auth.FirebaseUser;
 
 import es.pjd.DispatcherActivity;
 import es.pjd.MenuActivity;
-import es.pjd.OrgVolActivity;
 import es.pjd.R;
 
 
