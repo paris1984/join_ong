@@ -9,9 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DispatcherActivity"
-            android:label="@string/title_activity_org_vol"></activity>
+
+        <activity
+            android:name=".DispatcherActivity"
+            android:label="@string/title_activity_dispatcher" />
         <activity android:name=".RegisterActivity" />
+        <activity
+            android:name=".OrganizationRegActivity"
+            android:label="@string/title_activity_organization_reg" />
+        <activity android:name=".VolunteerRegActivity"
+            android:label="@string/title_activity_volunteer_reg"></activity>
         <activity
             android:name=".MenuActivity"
             android:label="@string/title_activity_menu"

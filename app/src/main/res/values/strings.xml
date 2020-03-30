@@ -26,15 +26,28 @@
     <string name="menu_slideshow">Slideshow</string>
 
     <string name="home_second">Home Second</string>
-    <string name="title_activity_org_vol">Registro</string>
+    <string name="title_activity_dispatcher">Registro</string>
+
+    <string name="text_btn_next">SIGUIENTE</string>
+    <string name="text_btn_accept">ACCEPTAR</string>
+
     <string name="text_btn_org">ORGANIZACIÓN</string>
     <string name="text_btn_vol">VOLUNTARIO</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_organization_reg">Registro Organización</string>
+    <string name="text_name_organization">Nombre organización</string>
+    <string name="text_description_organization">Descripción organización</string>
+    <string name="text_email_organization">Email organización</string>
+    <string name="text_phone_organization">Teléfono organización</string>
+
+
+    <string name="title_activity_volunteer_reg">Registro Voluntario</string>
+    <string name="text_name_volunteer">Nombre voluntario</string>
+    <string name="text_nick_volunteer">Nick voluntario</string>
+    <string name="text_email_volunteer">Email voluntario</string>
+    <string name="text_password_volunteer">Contraseña</string>
+    <string name="text_re_password_volunteer">Confirmación Contraseña</string>
+    <string name="text_phone_volunteer">Teléfono voluntario</string>
+    <string name="text_iden_organization">Identificador organización</string>
+
 </resources>

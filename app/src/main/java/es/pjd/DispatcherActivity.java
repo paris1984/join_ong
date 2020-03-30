@@ -18,7 +18,16 @@ public class DispatcherActivity extends AppCompatActivity {
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
+        final ImageView organization = findViewById(R.id.organizacion);
         final ImageView voluntario = findViewById(R.id.voluntario);
+
+        organization.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),OrganizationRegActivity.class);
+                startActivity(intent);
+            }
+        });
         voluntario.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
