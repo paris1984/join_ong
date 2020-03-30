@@ -1,18 +1,25 @@
 <resources>
     <string name="app_name">JoinOng</string>
-    <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
+    <!-- View activity_login-->
+    <string name="email">Correo</string>
+    <string name="password">Contraseña</string>
+    <string name="forget_password"><u>¿Olvidó su contraseña?</u></string>
+    <string name="sign_in">Acceder</string>
+    <string name="register"><u>Registrarse</u></string>
+    <string name="invalid_username">Formato incorrecto</string>
+    <string name="invalid_password">La contraseña tiene que tener un tamaño minimo de 6</string>
+    <string name="login_failed">"Error en el acceso"</string>
+    <string name="login_error">"El usuario o la contraseña son incorrectos"</string>
+    <!-- end View activity_login-->
+
     <string name="nombre">Nombre</string>
     <string name="apellidos">Apellidos</string>
     <string name="telefono">Telefono</string>
-    <string name="prompt_password">Password</string>
     <string name="repassword">Repassword</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
+    <string name="action_sign_in_short">Login</string>
     <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+
+
     <string name="title_activity_menu">MenuActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

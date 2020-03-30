@@ -19,24 +19,28 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseException;
+import com.google.firebase.FirebaseNetworkException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.auth.FirebaseUser;
-
-import java.util.Objects;
 
 import es.pjd.MenuActivity;
 import es.pjd.OrgVolActivity;
 import es.pjd.R;
-import es.pjd.RegisterActivity;
-
 
 
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
     private FirebaseAuth mAuth;
+    private ProgressBar loadingProgressBar;
+    private EditText usernameEditText;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,11 +48,12 @@ public class LoginActivity extends AppCompatActivity {
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
         //inicializacion de objetos
-        final EditText usernameEditText = findViewById(R.id.username);
+        usernameEditText = findViewById(R.id.username);
         final EditText passwordEditText = findViewById(R.id.password);
         final Button loginButton = findViewById(R.id.login);
-        final ProgressBar loadingProgressBar = findViewById(R.id.loading);
-        final TextView registerText = findViewById(R.id.registrar);
+        loadingProgressBar = findViewById(R.id.loading);
+        final TextView registerText = findViewById(R.id.register);
+        final TextView forgetPasswordText = findViewById(R.id.forgetpassword);
         mAuth = FirebaseAuth.getInstance();
 
         //
@@ -68,9 +73,10 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 loginButton.setEnabled(loginFormState.isDataValid());
                 if (loginFormState.getUsernameError() != null) {
-                    usernameEditText.setError(getString(loginFormState.getUsernameError()));
+                    setError(getString(loginFormState.getUsernameError()));
                 }
                 if (loginFormState.getPasswordError() != null) {
+                    loadingProgressBar.setVisibility(View.GONE);
                     passwordEditText.setError(getString(loginFormState.getPasswordError()));
                 }
             }
@@ -101,24 +107,43 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 loadingProgressBar.setVisibility(View.VISIBLE);
                 login(usernameEditText.getText().toString(),passwordEditText.getText().toString());
-                loadingProgressBar.setVisibility(View.GONE);
             }
         });
     }
 
     private void login(String user, String password){
         mAuth.signInWithEmailAndPassword(user, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUiWithUser(new LoggedInUserView(user.getUid()));
-                        }else{
-                            task.getException();
-                        }
-                    }
-                });
+        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    updateUiWithUser(new LoggedInUserView(user.getUid()));
+                }else{
+
+                    setError(null,task.getException());
+                }
+            }
+        });
+    }
+
+    private void setError(String message,Exception... exceptions){
+        String error=null;
+        if(message!=null){
+            error = message;
+        }else{
+            try{
+                FirebaseAuthException exception = (FirebaseAuthException)exceptions[0];
+                switch (exception.getErrorCode()){
+                    case "ERROR_INVALID_EMAIL":error = getString(R.string.invalid_username);break;
+                    default:error = getString(R.string.login_error);
+                }
+            }catch(Exception e){
+                error = getString(R.string.login_failed);
+            }
+        }
+        loadingProgressBar.setVisibility(View.GONE);
+        usernameEditText.setError(error);
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
