@@ -22,6 +22,7 @@
             app:cardPreventCornerOverlap="true">
 
             <TextView
+                android:id="@+id/headerVolun"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#8c000000"
@@ -53,12 +54,12 @@
                     android:textSize="14sp"/>
 
                 <EditText
-                    android:id="@+id/volNick"
+                    android:id="@+id/volSurname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="text"
-                    android:hint="@string/text_nick_volunteer"
+                    android:hint="@string/text_surname_volunteer"
                     android:layout_marginTop="10dp"
                     android:selectAllOnFocus="true"
                     android:textSize="14sp"/>
