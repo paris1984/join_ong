@@ -66,9 +66,10 @@
 
     <!-- View activity_volunteer_reg-->
     <string name="title_activity_volunteer_reg">Registro Voluntario</string>
+    <string name="header_activity_administrator_reg">Datos Administrador</string>
     <string name="header_activity_volunteer_reg">Datos Voluntario</string>
     <string name="text_name_volunteer">Nombre voluntario</string>
-    <string name="text_nick_volunteer">Nick voluntario</string>
+    <string name="text_surname_volunteer">Apellidos voluntario</string>
     <string name="text_email_volunteer">Email voluntario</string>
     <string name="text_password_volunteer">Contraseña</string>
     <string name="text_re_password_volunteer">Confirmación Contraseña</string>
