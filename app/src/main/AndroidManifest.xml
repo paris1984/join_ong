@@ -11,16 +11,16 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".DispatcherActivity"
+            android:name=".activity.DispatcherActivity"
             android:label="@string/title_activity_dispatcher" />
-        <activity android:name=".RegisterActivity" />
+        <activity android:name=".activity.RegisterActivity" />
         <activity
-            android:name=".OrganizationRegActivity"
+            android:name=".activity.OrganizationRegActivity"
             android:label="@string/title_activity_organization_reg" />
-        <activity android:name=".VolunteerRegActivity"
+        <activity android:name=".activity.VolunteerRegActivity"
             android:label="@string/title_activity_volunteer_reg"></activity>
         <activity
-            android:name=".MenuActivity"
+            android:name=".activity.MenuActivity"
             android:label="@string/title_activity_menu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

@@ -25,8 +25,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseUser;
 
-import es.pjd.DispatcherActivity;
-import es.pjd.MenuActivity;
+import es.pjd.activity.DispatcherActivity;
+import es.pjd.activity.MenuActivity;
 import es.pjd.R;
 
 
@@ -113,7 +113,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     FirebaseUser user = mAuth.getCurrentUser();
-                    updateUiWithUser(new LoggedInUserView(user.getUid()));
+                    Intent intent = new Intent(getBaseContext(), MenuActivity.class);
+                    startActivity(intent);
                 }else{
 
                     setError(null,task.getException());
@@ -139,14 +140,6 @@ public class LoginActivity extends AppCompatActivity {
         }
         loadingProgressBar.setVisibility(View.GONE);
         usernameEditText.setError(error);
-    }
-
-    private void updateUiWithUser(LoggedInUserView model) {
-
-        // TODO : initiate successful logged in experience
-        Intent intent = new Intent(this, MenuActivity.class);
-        startActivity(intent);
-        //Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
     }
 
     private void showLoginFailed(@StringRes Integer errorString) {

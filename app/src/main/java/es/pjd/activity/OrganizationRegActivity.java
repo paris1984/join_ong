@@ -1,4 +1,4 @@
-package es.pjd;
+package es.pjd.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Objects;
+
+import es.pjd.R;
 
 public class OrganizationRegActivity extends AppCompatActivity {
 
@@ -23,7 +25,7 @@ public class OrganizationRegActivity extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),VolunteerRegActivity.class);
+                Intent intent = new Intent(getApplicationContext(), VolunteerRegActivity.class);
                 startActivity(intent);
             }
         });

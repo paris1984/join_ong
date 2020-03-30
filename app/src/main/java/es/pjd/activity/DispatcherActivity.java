@@ -1,4 +1,4 @@
-package es.pjd;
+package es.pjd.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.ImageView;
 
 import java.util.Objects;
+
+import es.pjd.R;
 
 public class DispatcherActivity extends AppCompatActivity {
 
@@ -24,14 +26,14 @@ public class DispatcherActivity extends AppCompatActivity {
         organization.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),OrganizationRegActivity.class);
+                Intent intent = new Intent(getApplicationContext(), OrganizationRegActivity.class);
                 startActivity(intent);
             }
         });
         voluntario.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),RegisterActivity.class);
+                Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
                 startActivity(intent);
             }
         });

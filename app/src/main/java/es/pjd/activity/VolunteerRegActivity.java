@@ -1,4 +1,4 @@
-package es.pjd;
+package es.pjd.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import java.util.Objects;
 
+import es.pjd.R;
 import es.pjd.ui.login.LoginActivity;
 
 public class VolunteerRegActivity extends AppCompatActivity {
