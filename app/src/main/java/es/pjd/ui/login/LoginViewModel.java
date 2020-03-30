@@ -10,6 +10,7 @@ import es.pjd.R;
 
 public class LoginViewModel extends ViewModel {
 
+    public static final int PASSWORD_SIZE_MAX = 6;
     private MutableLiveData<LoginFormState> loginFormState = new MutableLiveData<>();
 
     LiveData<LoginFormState> getLoginFormState() {
@@ -40,6 +41,6 @@ public class LoginViewModel extends ViewModel {
 
     // A placeholder password validation check
     private boolean isPasswordValid(String password) {
-        return password != null && password.trim().length() > 5;
+        return password != null && password.trim().length() >= PASSWORD_SIZE_MAX;
     }
 }
