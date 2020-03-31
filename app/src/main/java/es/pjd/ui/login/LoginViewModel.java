@@ -18,24 +18,36 @@ public class LoginViewModel extends ViewModel {
     }
 
     public void loginDataChanged(String username, String password) {
-        if (!isUserNameValid(username)) {
+        if(isUserNameFill(username))
+            if(!"".equals(password)) {
+                if (!isPasswordValid(password)) {
+                    loginFormState.setValue(new LoginFormState(null, R.string.invalid_password));
+                } else {
+                    loginFormState.setValue(new LoginFormState(true));
+                }
+            }else{
+                loginFormState.setValue(new LoginFormState(false));
+            }
+    }
+
+    public Boolean isUserNameFill(String username) {
+        Boolean valid = false;
+        if(username==null || "".equals(username)){
+            loginFormState.setValue(new LoginFormState(R.string.empty_username, null));
+        }else if (!isUserNameValidPattern(username)){
             loginFormState.setValue(new LoginFormState(R.string.invalid_username, null));
-        } else if (!isPasswordValid(password)) {
-            loginFormState.setValue(new LoginFormState(null, R.string.invalid_password));
-        } else {
-            loginFormState.setValue(new LoginFormState(true));
+        }else{
+            valid = true;
         }
+        return valid;
     }
 
     // A placeholder username validation check
-    private boolean isUserNameValid(String username) {
-        if (username == null) {
-            return false;
-        }
+    private boolean isUserNameValidPattern(String username) {
         if (username.contains("@")) {
             return Patterns.EMAIL_ADDRESS.matcher(username).matches();
         } else {
-            return !username.trim().isEmpty();
+            return false;
         }
     }
 

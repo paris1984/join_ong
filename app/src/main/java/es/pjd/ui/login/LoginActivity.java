@@ -44,12 +44,13 @@ public class LoginActivity extends AppCompatActivity {
                 .get(LoginViewModel.class);
         //inicializacion de objetos
         usernameEditText = findViewById(R.id.username);
+        loadingProgressBar = findViewById(R.id.loading);
+        mAuth = FirebaseAuth.getInstance();
         final EditText passwordEditText = findViewById(R.id.password);
         final Button loginButton = findViewById(R.id.login);
-        loadingProgressBar = findViewById(R.id.loading);
         final TextView registerText = findViewById(R.id.register);
         final TextView forgetPasswordText = findViewById(R.id.forgetpassword);
-        mAuth = FirebaseAuth.getInstance();
+
 
         //
 
@@ -60,6 +61,17 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        forgetPasswordText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String username = usernameEditText.getText().toString();
+                if(loginViewModel.isUserNameFill(username)) {
+                    forgetPassword(username);
+                }
+            }
+        });
+
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
             public void onChanged(@Nullable LoginFormState loginFormState) {
@@ -113,12 +125,29 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     FirebaseUser user = mAuth.getCurrentUser();
-                    Intent intent = new Intent(getBaseContext(), MenuActivity.class);
+                    Intent intent = new Intent(getBaseContext(), MenuActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                     startActivity(intent);
+
                 }else{
 
                     setError(null,task.getException());
                 }
+            }
+        });
+    }
+
+    private void forgetPassword(String userName){
+        loadingProgressBar.setVisibility(View.VISIBLE);
+        mAuth.sendPasswordResetEmail(usernameEditText.getText().toString()).addOnCompleteListener(this, new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                String message;
+                if(task.isSuccessful()){
+                    Toast.makeText(getApplicationContext(), getString(R.string.forgetpassword_ok), Toast.LENGTH_LONG).show();
+                }else{
+                    setError(null,task.getException());
+                }
+
             }
         });
     }
@@ -132,7 +161,7 @@ public class LoginActivity extends AppCompatActivity {
                 FirebaseAuthException exception = (FirebaseAuthException)exceptions[0];
                 switch (exception.getErrorCode()){
                     case "ERROR_INVALID_EMAIL":error = getString(R.string.invalid_username);break;
-                    default:error = getString(R.string.login_error);
+                    default:error = getString(R.string.error_dontexist_user);
                 }
             }catch(Exception e){
                 error = getString(R.string.login_failed);
@@ -140,9 +169,5 @@ public class LoginActivity extends AppCompatActivity {
         }
         loadingProgressBar.setVisibility(View.GONE);
         usernameEditText.setError(error);
-    }
-
-    private void showLoginFailed(@StringRes Integer errorString) {
-        Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
 }
