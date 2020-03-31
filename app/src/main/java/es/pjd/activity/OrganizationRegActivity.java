@@ -13,6 +13,8 @@ import es.pjd.R;
 
 public class OrganizationRegActivity extends AppCompatActivity {
 
+    public static final String COMES_FROM_ORGANTIZATION = "comesFromOrgantization";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +28,9 @@ public class OrganizationRegActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), VolunteerRegActivity.class);
+                Bundle bundleOrganizationReg = new Bundle();
+                bundleOrganizationReg.putBoolean(COMES_FROM_ORGANTIZATION, true);
+                intent.putExtras(bundleOrganizationReg);
                 startActivity(intent);
             }
         });

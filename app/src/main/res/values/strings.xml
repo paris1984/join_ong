@@ -36,7 +36,7 @@
     <string name="title_activity_dispatcher">Registro</string>
 
     <string name="text_btn_next">SIGUIENTE</string>
-    <string name="text_btn_accept">ACCEPTAR</string>
+    <string name="text_btn_accept">ACEPTAR</string>
 
     <!-- View activity_dispatcher-->
     <string name="text_btn_org">ORGANIZACIÓN</string>
@@ -65,11 +65,19 @@
     <!-- end View activity_organization_reg-->
 
     <!-- View activity_volunteer_reg-->
+    <string name="title_activity_administrator_reg">Datos Administrador</string>
+    <string name="text_name_administrator">Nombre administrador</string>
+    <string name="text_surname_administrator">Apellidos administrador</string>
+    <string name="text_nick_administrator">Nick administrador</string>
+    <string name="text_email_administrator">Email administrador</string>
+    <string name="text_password_administrator">Contraseña</string>
+    <string name="text_re_password_administrator">Confirmación Contraseña</string>
+    <string name="text_phone_administrator">Teléfono administrador</string>
+
     <string name="title_activity_volunteer_reg">Registro Voluntario</string>
-    <string name="header_activity_administrator_reg">Datos Administrador</string>
-    <string name="header_activity_volunteer_reg">Datos Voluntario</string>
     <string name="text_name_volunteer">Nombre voluntario</string>
     <string name="text_surname_volunteer">Apellidos voluntario</string>
+    <string name="text_nick_volunteer">Nick voluntario</string>
     <string name="text_email_volunteer">Email voluntario</string>
     <string name="text_password_volunteer">Contraseña</string>
     <string name="text_re_password_volunteer">Confirmación Contraseña</string>
