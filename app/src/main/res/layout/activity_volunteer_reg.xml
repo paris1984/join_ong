@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/containerVolReg"
+    android:id="@+id/containerVolAdminReg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -25,6 +25,7 @@
         android:visibility="gone" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/volCardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="6dp"
@@ -37,7 +38,8 @@
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="15sp">
+            android:layout_marginTop="15sp"
+            android:visibility="visible">
 
             <EditText
                 android:id="@+id/volName"
@@ -47,7 +49,8 @@
                 android:inputType="text"
                 android:hint="@string/text_name_volunteer"
                 android:selectAllOnFocus="true"
-                android:textSize="14sp"/>
+                android:textSize="14sp"
+                android:autofillHints="@string/text_name_volunteer" />
 
             <EditText
                 android:id="@+id/volSurname"
@@ -58,7 +61,8 @@
                 android:hint="@string/text_surname_volunteer"
                 android:layout_marginTop="10dp"
                 android:selectAllOnFocus="true"
-                android:textSize="14sp"/>
+                android:textSize="14sp"
+                android:autofillHints="@string/text_surname_volunteer"/>
 
             <EditText
                 android:id="@+id/volNick"
@@ -69,7 +73,8 @@
                 android:hint="@string/text_nick_volunteer"
                 android:layout_marginTop="10dp"
                 android:selectAllOnFocus="true"
-                android:textSize="14sp"/>
+                android:textSize="14sp"
+                android:autofillHints="@string/text_nick_volunteer"/>
 
             <EditText
                 android:id="@+id/volEmail"
@@ -80,7 +85,8 @@
                 android:hint="@string/text_email_volunteer"
                 android:layout_marginTop="10dp"
                 android:selectAllOnFocus="true"
-                android:textSize="14sp"/>
+                android:textSize="14sp"
+                android:autofillHints="@string/text_email_volunteer"/>
 
             <EditText
                 android:id="@+id/volPassword"
@@ -91,7 +97,8 @@
                 android:hint="@string/text_password_volunteer"
                 android:layout_marginTop="10dp"
                 android:selectAllOnFocus="true"
-                android:textSize="14sp"/>
+                android:textSize="14sp"
+                android:autofillHints="@string/text_password_volunteer"/>
 
             <EditText
                 android:id="@+id/volConfPassword"
@@ -102,7 +109,8 @@
                 android:hint="@string/text_re_password_volunteer"
                 android:layout_marginTop="10dp"
                 android:selectAllOnFocus="true"
-                android:textSize="14sp"/>
+                android:textSize="14sp"
+                android:autofillHints="@string/text_re_password_volunteer"/>
 
             <EditText
                 android:id="@+id/volTel"
@@ -113,7 +121,8 @@
                 android:hint="@string/text_phone_volunteer"
                 android:layout_marginTop="10dp"
                 android:selectAllOnFocus="true"
-                android:textSize="14sp"/>
+                android:textSize="14sp"
+                android:autofillHints="@string/text_phone_volunteer"/>
 
             <EditText
                 android:id="@+id/identOrg"
@@ -125,10 +134,125 @@
                 android:layout_marginTop="10dp"
                 android:visibility="visible"
                 android:selectAllOnFocus="true"
-                android:textSize="14sp"/>
+                android:textSize="14sp"
+                android:autofillHints="@string/text_iden_organization"/>
 
             <Button
                 android:id="@+id/volBtnAccept"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="15dp"
+                android:enabled="true"
+                android:text="@string/text_btn_accept"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/adminCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="6dp"
+        app:cardPreventCornerOverlap="true"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="15sp">
+
+            <EditText
+                android:id="@+id/admName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="@string/text_name_administrator"
+                android:autofillHints="@string/text_name_administrator"
+                android:selectAllOnFocus="true"
+                android:textSize="14sp"/>
+
+            <EditText
+                android:id="@+id/admSurname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="@string/text_surname_administrator"
+                android:autofillHints="@string/text_surname_administrator"
+                android:layout_marginTop="10dp"
+                android:selectAllOnFocus="true"
+                android:textSize="14sp"/>
+
+            <EditText
+                android:id="@+id/admNick"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="@string/text_nick_administrator"
+                android:autofillHints="@string/text_nick_administrator"
+                android:layout_marginTop="10dp"
+                android:selectAllOnFocus="true"
+                android:textSize="14sp"/>
+
+            <EditText
+                android:id="@+id/admEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:hint="@string/text_email_administrator"
+                android:autofillHints="@string/text_email_administrator"
+                android:layout_marginTop="10dp"
+                android:selectAllOnFocus="true"
+                android:textSize="14sp"/>
+
+            <EditText
+                android:id="@+id/admPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:hint="@string/text_password_volunteer"
+                android:autofillHints="@string/text_password_volunteer"
+                android:layout_marginTop="10dp"
+                android:selectAllOnFocus="true"
+                android:textSize="14sp"/>
+
+            <EditText
+                android:id="@+id/admConfPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:hint="@string/text_re_password_volunteer"
+                android:autofillHints="@string/text_re_password_volunteer"
+                android:layout_marginTop="10dp"
+                android:selectAllOnFocus="true"
+                android:textSize="14sp"/>
+
+            <EditText
+                android:id="@+id/admTel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="phone"
+                android:hint="@string/text_phone_administrator"
+                android:autofillHints="@string/text_phone_administrator"
+                android:layout_marginTop="10dp"
+                android:selectAllOnFocus="true"
+                android:textSize="14sp"/>
+
+            <Button
+                android:id="@+id/admBtnAccept"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

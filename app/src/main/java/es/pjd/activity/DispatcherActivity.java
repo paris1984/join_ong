@@ -33,7 +33,7 @@ public class DispatcherActivity extends AppCompatActivity {
         voluntario.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+                Intent intent = new Intent(getApplicationContext(), VolunteerRegActivity.class);
                 startActivity(intent);
             }
         });
