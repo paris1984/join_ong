@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -13,7 +15,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -25,9 +26,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseUser;
 
+import es.pjd.R;
 import es.pjd.activity.DispatcherActivity;
 import es.pjd.activity.MenuActivity;
-import es.pjd.R;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -40,8 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
-                .get(LoginViewModel.class);
+        loginViewModel = ViewModelProviders.of(this).get(LoginViewModel.class);
         //inicializacion de objetos
         usernameEditText = findViewById(R.id.username);
         loadingProgressBar = findViewById(R.id.loading);
@@ -69,6 +69,7 @@ public class LoginActivity extends AppCompatActivity {
                 if(loginViewModel.isUserNameFill(username)) {
                     forgetPassword(username);
                 }
+
             }
         });
 
@@ -108,6 +109,19 @@ public class LoginActivity extends AppCompatActivity {
         };
         usernameEditText.addTextChangedListener(afterTextChangedListener);
         passwordEditText.addTextChangedListener(afterTextChangedListener);
+        passwordEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                loadingProgressBar.setVisibility(View.VISIBLE);
+                String user = usernameEditText.getText().toString();
+                String password = passwordEditText.getText().toString();
+                loginViewModel.loginDataChanged(user,password);
+                if (loginViewModel.getLoginFormState().getValue().isDataValid() && actionId == EditorInfo.IME_ACTION_DONE ) {
+                    login(user,password);
+                }
+                return false;
+            }
+        });
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,6 +130,12 @@ public class LoginActivity extends AppCompatActivity {
                 login(usernameEditText.getText().toString(),passwordEditText.getText().toString());
             }
         });
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        loadingProgressBar.setVisibility(View.GONE);
     }
 
     private void login(String user, String password){
@@ -141,13 +161,12 @@ public class LoginActivity extends AppCompatActivity {
         mAuth.sendPasswordResetEmail(usernameEditText.getText().toString()).addOnCompleteListener(this, new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                String message;
                 if(task.isSuccessful()){
                     Toast.makeText(getApplicationContext(), getString(R.string.forgetpassword_ok), Toast.LENGTH_LONG).show();
                 }else{
                     setError(null,task.getException());
                 }
-
+                loadingProgressBar.setVisibility(View.GONE);
             }
         });
     }
