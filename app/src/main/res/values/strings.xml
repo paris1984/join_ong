@@ -56,7 +56,6 @@
 
     <string name="custom_greet">Hola %1$s !</string>
 
-
     <!-- View activity_organization_reg-->
     <string name="title_activity_organization_reg">Registro Organización</string>
     <string name="header_activity_organization_reg">Datos Organización</string>

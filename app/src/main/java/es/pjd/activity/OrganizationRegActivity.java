@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,16 +23,19 @@ public class OrganizationRegActivity extends AppCompatActivity {
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
+        final EditText orgName = findViewById(R.id.orgName);
+        final EditText orgDesc = findViewById(R.id.orgDesc);
+        final EditText orgEmail = findViewById(R.id.orgEmail);
+        final EditText orgTel = findViewById(R.id.orgTel);
         final Button btnNext = findViewById(R.id.orgBtnNext);
 
         btnNext.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), VolunteerRegActivity.class);
-                Bundle bundleOrganizationReg = new Bundle();
-                bundleOrganizationReg.putBoolean(COMES_FROM_ORGANTIZATION, true);
-                intent.putExtras(bundleOrganizationReg);
-                startActivity(intent);
+                Bundle bundle = new Bundle();
+                bundle.putBoolean(COMES_FROM_ORGANTIZATION, true);
+                startActivity(intent.putExtras(bundle));
             }
         });
 

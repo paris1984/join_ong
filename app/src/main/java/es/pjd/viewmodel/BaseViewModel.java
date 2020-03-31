@@ -23,6 +23,10 @@ public abstract class BaseViewModel<Model> extends ViewModel {
         firebaseFirestore = FirebaseFirestore.getInstance();
     }
 
+    protected FirebaseFirestore getDB(){
+        return firebaseFirestore;
+    }
+
     protected void addNewModelMap(Map<String, Object> modelMap){
 
         firebaseFirestore.collection(getRootNode())
