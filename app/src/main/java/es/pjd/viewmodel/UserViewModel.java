@@ -11,7 +11,6 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -121,6 +120,13 @@ public class UserViewModel extends BaseViewModel<User> {
 
     public LiveData<List<User>> getUserByUid(String uid){
         db.collection("users").whereEqualTo("uid", uid)
+                .get()
+                .addOnCompleteListener(getOnCompleteListener());
+        return users;
+    }
+
+    public LiveData<List<User>> getUserOrganizationPermissionsById(String id){
+        db.collection("users").document(id).collection("organizations")
                 .get()
                 .addOnCompleteListener(getOnCompleteListener());
         return users;

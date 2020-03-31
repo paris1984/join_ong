@@ -1,5 +1,7 @@
 package es.pjd.data.model;
 
+import java.util.Map;
+
 public class User {
 
     private String uid;
@@ -8,6 +10,7 @@ public class User {
     private String nick;
     private String phone;
     private String email;
+    private Map<String, Permission> organizationPermissions;
 
     public User(){}
 
@@ -42,5 +45,9 @@ public class User {
 
     public String getEmail() {
         return email;
+    }
+
+    public Map<String, Permission> getOrganizacionPermissions(){
+        return organizationPermissions;
     }
 }

@@ -60,6 +60,7 @@ public class MenuActivity extends AppCompatActivity {
 
         userViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
         userViewModel.getUserByUid(FirebaseAuth.getInstance().getUid()).observe(this, new Observer<List<User>>() {
+        //userViewModel.getUserOrganizationPermissionsById(FirebaseAuth.getInstance().getUid()).observe(this, new Observer<List<User>>() {
             @Override
             public void onChanged(List<User> users) {
                 if(users != null && !users.isEmpty()){
