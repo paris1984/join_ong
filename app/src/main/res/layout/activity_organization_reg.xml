@@ -1,115 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/containerOrgReg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.OrganizationRegActivity">
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="80dp"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".activity.OrganizationRegActivity"
+    android:gravity="center">
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="64dp"
+        android:visibility="gone" />
 
-        <androidx.cardview.widget.CardView
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="6dp"
+        app:cardPreventCornerOverlap="true">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="6dp"
-            app:cardPreventCornerOverlap="true">
+            android:layout_height="fill_parent"
+            android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="15sp"
+            android:layout_marginBottom="15sp">
 
-            <TextView
+            <EditText
+                android:id="@+id/orgName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#8c000000"
-                android:padding="10dp"
-                android:text="@string/header_activity_organization_reg"
-                android:textColor="#ffe3e3e3"
-                android:textSize="20sp"
-                android:textStyle="normal"
-                android:textAlignment="center"/>
+                android:ems="10"
+                android:textSize="14sp"
+                android:inputType="text"
+                android:hint="@string/text_name_organization"
+                android:selectAllOnFocus="true"/>
 
-            <LinearLayout
+            <EditText
+                android:id="@+id/orgDesc"
                 android:layout_width="match_parent"
-                android:layout_height="fill_parent"
-                android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="50sp">
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:maxLines="2"
+                android:minLines="2"
+                android:hint="@string/text_description_organization"
+                android:layout_marginTop="10dp"
+                android:selectAllOnFocus="true"
+                android:textSize="14sp"/>
 
-                <EditText
-                    android:id="@+id/orgName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:textSize="14sp"
-                    android:inputType="text"
-                    android:hint="@string/text_name_organization"
-                    android:layout_marginTop="15dp"
-                    android:selectAllOnFocus="true"/>
+            <EditText
+                android:id="@+id/orgEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:hint="@string/text_email_organization"
+                android:layout_marginTop="10dp"
+                android:selectAllOnFocus="true"
+                android:textSize="14sp"/>
 
-                <EditText
-                    android:id="@+id/orgDesc"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:gravity="start|top"
-                    android:inputType="textMultiLine"
-                    android:maxLines="2"
-                    android:minLines="2"
-                    android:hint="@string/text_description_organization"
-                    android:layout_marginTop="10dp"
-                    android:selectAllOnFocus="true"
-                    android:textSize="14sp"/>
+            <EditText
+                android:id="@+id/orgTel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="phone"
+                android:hint="@string/text_phone_organization"
+                android:layout_marginTop="10dp"
+                android:selectAllOnFocus="true"
+                android:textSize="14sp"/>
 
-                <EditText
-                    android:id="@+id/orgEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textEmailAddress"
-                    android:hint="@string/text_email_organization"
-                    android:layout_marginTop="10dp"
-                    android:selectAllOnFocus="true"
-                    android:textSize="14sp"/>
+            <Button
+                android:id="@+id/orgBtnNext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:enabled="true"
+                android:text="@string/text_btn_next"
+                android:textSize="14sp"/>
 
-                <EditText
-                    android:id="@+id/orgTel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="phone"
-                    android:hint="@string/text_phone_organization"
-                    android:layout_marginTop="10dp"
-                    android:selectAllOnFocus="true"
-                    android:textSize="14sp"/>
+        </LinearLayout>
 
-                <Button
-                    android:id="@+id/orgBtnNext"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="30dp"
-                    android:enabled="true"
-                    android:text="@string/text_btn_next"
-                    android:textSize="14sp"/>
+    </androidx.cardview.widget.CardView>
 
-                <ProgressBar
-                    android:id="@+id/loadingOrg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:visibility="gone" />
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
