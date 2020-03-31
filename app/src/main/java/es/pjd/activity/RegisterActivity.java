@@ -82,8 +82,8 @@ public class RegisterActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
 
                             FirebaseUser user = mAuth.getCurrentUser();
-                            userViewModel.addNewUser(nombre, apellidos, email, phone, nick );
-
+                            //userViewModel.addNewUser(nombre, apellidos, email, phone, nick );
+                            userViewModel.setNewUserWithUid(nombre, apellidos, email, phone, nick );
                             //TODO abrir intent o esperar ver si no falla el registro?
                             Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
                             startActivity(intent);
@@ -94,7 +94,5 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     }
                 });
-
-
     }
 }
