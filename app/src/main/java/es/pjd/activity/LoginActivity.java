@@ -1,4 +1,4 @@
-package es.pjd.ui.login;
+package es.pjd.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,8 +27,8 @@ import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseUser;
 
 import es.pjd.R;
-import es.pjd.activity.DispatcherActivity;
-import es.pjd.activity.MenuActivity;
+import es.pjd.viewmodel.LoginFormState;
+import es.pjd.viewmodel.LoginViewModel;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -118,6 +118,8 @@ public class LoginActivity extends AppCompatActivity {
                 loginViewModel.loginDataChanged(user,password);
                 if (loginViewModel.getLoginFormState().getValue().isDataValid() && actionId == EditorInfo.IME_ACTION_DONE ) {
                     login(user,password);
+                }else{
+                    loadingProgressBar.setVisibility(View.GONE);
                 }
                 return false;
             }

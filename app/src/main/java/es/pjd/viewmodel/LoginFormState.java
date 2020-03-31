@@ -1,11 +1,11 @@
-package es.pjd.ui.login;
+package es.pjd.viewmodel;
 
 import androidx.annotation.Nullable;
 
 /**
  * Data validation state of the login form.
  */
-class LoginFormState {
+public class LoginFormState {
     @Nullable
     private Integer usernameError;
     @Nullable
@@ -25,16 +25,16 @@ class LoginFormState {
     }
 
     @Nullable
-    Integer getUsernameError() {
+    public Integer getUsernameError() {
         return usernameError;
     }
 
     @Nullable
-    Integer getPasswordError() {
+    public Integer getPasswordError() {
         return passwordError;
     }
 
-    boolean isDataValid() {
+    public boolean isDataValid() {
         return isDataValid;
     }
 }

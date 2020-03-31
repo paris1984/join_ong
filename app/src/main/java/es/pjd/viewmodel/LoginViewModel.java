@@ -1,4 +1,4 @@
-package es.pjd.ui.login;
+package es.pjd.viewmodel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -13,7 +13,7 @@ public class LoginViewModel extends ViewModel {
     public static final int PASSWORD_SIZE_MAX = 6;
     private MutableLiveData<LoginFormState> loginFormState = new MutableLiveData<>();
 
-    LiveData<LoginFormState> getLoginFormState() {
+    public LiveData<LoginFormState> getLoginFormState() {
         return loginFormState;
     }
 

@@ -1,4 +1,4 @@
-package es.pjd.ui.login;
+package es.pjd.data.model;
 
 /**
  * Class exposing authenticated user details to the UI.
