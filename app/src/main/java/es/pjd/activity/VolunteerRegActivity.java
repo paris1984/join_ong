@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.Objects;
 
 import es.pjd.R;
-import es.pjd.viewmodel.UserViewModel;
+import es.pjd.model.UserViewModel;
 
 public class VolunteerRegActivity extends AppCompatActivity {
 

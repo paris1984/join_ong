@@ -24,7 +24,7 @@ import java.util.List;
 
 import es.pjd.R;
 import es.pjd.data.model.User;
-import es.pjd.viewmodel.UserViewModel;
+import es.pjd.model.UserViewModel;
 
 public class MenuActivity extends AppCompatActivity {
 

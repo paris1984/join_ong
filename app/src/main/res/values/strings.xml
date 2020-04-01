@@ -8,6 +8,7 @@
     <string name="register"><u>Registrarse</u></string>
     <string name="empty_username">Correo obligatorio</string>
     <string name="invalid_username">Formato incorrecto</string>
+    <string name="invalid_phone">El teléfono debe tener un tamaño de 9 dígitos</string>
     <string name="invalid_password">La contraseña tiene que tener un tamaño minimo de 6</string>
     <string name="login_failed">"Error en el acceso"</string>
     <string name="error_dontexist_user">"Los datos introducidos son incorrectos"</string>

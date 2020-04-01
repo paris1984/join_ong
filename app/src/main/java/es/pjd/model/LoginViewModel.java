@@ -1,4 +1,4 @@
-package es.pjd.viewmodel;
+package es.pjd.model;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

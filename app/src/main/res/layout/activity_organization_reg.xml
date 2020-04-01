@@ -48,7 +48,9 @@
                 android:textSize="14sp"
                 android:inputType="text"
                 android:hint="@string/text_name_organization"
-                android:selectAllOnFocus="true"/>
+                android:autofillHints="@string/text_name_organization"
+                android:selectAllOnFocus="true"
+                android:maxLength="30"/>
 
             <EditText
                 android:id="@+id/orgDesc"
@@ -60,9 +62,11 @@
                 android:maxLines="2"
                 android:minLines="2"
                 android:hint="@string/text_description_organization"
+                android:autofillHints="@string/text_description_organization"
                 android:layout_marginTop="10dp"
                 android:selectAllOnFocus="true"
-                android:textSize="14sp"/>
+                android:textSize="14sp"
+                android:maxLength="140"/>
 
             <EditText
                 android:id="@+id/orgEmail"
@@ -71,20 +75,24 @@
                 android:ems="10"
                 android:inputType="textEmailAddress"
                 android:hint="@string/text_email_organization"
+                android:autofillHints="@string/text_email_organization"
                 android:layout_marginTop="10dp"
                 android:selectAllOnFocus="true"
-                android:textSize="14sp"/>
+                android:textSize="14sp"
+                android:maxLength="30"/>
 
             <EditText
                 android:id="@+id/orgTel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="phone"
-                android:hint="@string/text_phone_organization"
                 android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="@string/text_phone_organization"
+                android:autofillHints="@string/text_phone_organization"
+                android:inputType="phone"
                 android:selectAllOnFocus="true"
-                android:textSize="14sp"/>
+                android:textSize="14sp"
+                android:maxLength="9"/>
 
             <Button
                 android:id="@+id/orgBtnNext"
@@ -92,7 +100,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:enabled="true"
+                android:enabled="false"
                 android:text="@string/text_btn_next"
                 android:textSize="14sp"/>
 

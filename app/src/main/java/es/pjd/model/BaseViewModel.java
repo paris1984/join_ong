@@ -1,4 +1,4 @@
-package es.pjd.viewmodel;
+package es.pjd.model;
 
 import android.util.Log;
 
@@ -10,7 +10,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public abstract class BaseViewModel<Model> extends ViewModel {
