@@ -24,7 +24,7 @@ import es.pjd.viewmodel.UserViewModel;
 
 public class VolunteerRegActivity extends AppCompatActivity {
 
-    public static final String COMES_FROM_ORGANTIZATION = "comesFromOrgantization";
+    public static final String COMES_FROM_ORGANIZATION = "comesFromOrgantization";
     private FirebaseAuth mAuth;
     private UserViewModel userViewModel;
 
@@ -59,7 +59,7 @@ public class VolunteerRegActivity extends AppCompatActivity {
         final Button admBtnAccept = findViewById(R.id.admBtnAccept);
 
 
-        if(hasParametersInActivity() && getIntent().getExtras().getBoolean(COMES_FROM_ORGANTIZATION)){
+        if(hasParametersInActivity() && getIntent().getExtras().getBoolean(COMES_FROM_ORGANIZATION)){
             setTitle(getString(R.string.title_activity_administrator_reg));
             volCardView.setVisibility(View.GONE);
             admCardView.setVisibility(View.VISIBLE);
