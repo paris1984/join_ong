@@ -116,6 +116,11 @@ public class OrganizationRegViewModel extends BaseViewModel<Organization>{
     }
 
     @Override
+    protected MutableLiveData<List<Organization>> getModels() {
+        return null;
+    }
+
+    @Override
     protected Organization mapToModel(Map mapFromDB) {
         return null;
     }
