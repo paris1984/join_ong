@@ -5,8 +5,8 @@ import es.pjd.R;
 public class DescriptionFieldFormOrganization implements IStateFieldFormOrganization {
 
     @Override
-    public OrganizationRegFormState getStatusIsNullOrEmpty() {
-        return OrganizationRegFormState.builder()
+    public OrgRegFormState getStatusIsNullOrEmpty() {
+        return OrgRegFormState.builder()
                 .withNameError(null)
                 .withDescriptionError(R.string.empty_description).withEmailError(null).withPhoneError(null).build();
     }

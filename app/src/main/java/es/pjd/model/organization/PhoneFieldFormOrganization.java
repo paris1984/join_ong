@@ -5,15 +5,15 @@ import es.pjd.R;
 public class PhoneFieldFormOrganization implements IPhoneStateFormOrganization {
 
     @Override
-    public OrganizationRegFormState getStatusIsNullOrEmpty() {
-        return OrganizationRegFormState.builder()
+    public OrgRegFormState getStatusIsNullOrEmpty() {
+        return OrgRegFormState.builder()
             .withNameError(null)
             .withDescriptionError(null).withEmailError(null).withPhoneError(R.string.empty_phone).build();
     }
 
     @Override
-    public OrganizationRegFormState getStatusLengthNotValid() {
-       return OrganizationRegFormState.builder()
+    public OrgRegFormState getStatusLengthNotValid() {
+       return OrgRegFormState.builder()
             .withNameError(null)
             .withDescriptionError(null).withEmailError(null).withPhoneError(R.string.invalid_phone).build();
     }

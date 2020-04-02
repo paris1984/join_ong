@@ -1,9 +1,7 @@
-package es.pjd.model;
+package es.pjd.model.organization;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import es.pjd.model.organization.OrganizationRegFormState;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -16,6 +14,7 @@ public class OrganizationRegFormStateTest {
     public static final Integer EMAIL_ERROR = 1;
     public static final Integer PHONE_ERROR = 1;
     public static final boolean IS_DATA_VALID_FALSE = false;
+    public static final boolean IS_DATA_VALID_TRUE = true;
 
     private OrganizationRegFormState entityA1;
     private OrganizationRegFormState entityA2;
@@ -35,7 +34,12 @@ public class OrganizationRegFormStateTest {
                 .withEmailError(EMAIL_ERROR)
                 .withPhoneError(PHONE_ERROR)
                 .withIsDataValid(IS_DATA_VALID_FALSE).build();
-        entityB = entityA1.cloneBuilder().build();
+        entityB = OrganizationRegFormState.builder()
+                .withNameError(NAME_ERROR)
+                .withDescriptionError(DESCRIPTION_ERROR)
+                .withEmailError(EMAIL_ERROR)
+                .withPhoneError(PHONE_ERROR)
+                .withIsDataValid(IS_DATA_VALID_TRUE).build();
     }
 
     @Test

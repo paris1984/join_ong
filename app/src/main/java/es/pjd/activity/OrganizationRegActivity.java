@@ -17,12 +17,17 @@ import androidx.lifecycle.ViewModelProviders;
 import java.util.Objects;
 
 import es.pjd.R;
+import es.pjd.model.organization.OrgRegFormState;
 import es.pjd.model.organization.OrganizationRegFormState;
 import es.pjd.model.organization.OrganizationRegViewModel;
 
 public class OrganizationRegActivity extends AppCompatActivity {
 
     public static final String COMES_FROM_ORGANIZATION = "comesFromOrgantization";
+    public static final String NAME_ORG = "nameOrgantization";
+    public static final String DESC_ORG = "descriptionOrgantization";
+    public static final String EMAIL_ORG = "emailOrgantization";
+    public static final String PHONE_ORG = "emailOrgantization";
     private OrganizationRegViewModel organizationRegViewModel;
     private ProgressBar loadingProgressBar;
 
@@ -41,9 +46,9 @@ public class OrganizationRegActivity extends AppCompatActivity {
         final EditText orgPhone = findViewById(R.id.orgTel);
         final Button btnNext = findViewById(R.id.orgBtnNext);
 
-        organizationRegViewModel.getOrganizationFormState().observe(this, new Observer<OrganizationRegFormState>() {
+        organizationRegViewModel.getOrganizationFormState().observe(this, new Observer<OrgRegFormState>() {
             @Override
-            public void onChanged(@Nullable OrganizationRegFormState organizationRegFormState) {
+            public void onChanged(@Nullable OrgRegFormState organizationRegFormState) {
                 if (organizationRegFormState == null) {
                     return;
                 }
@@ -91,6 +96,10 @@ public class OrganizationRegActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), VolunteerRegActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putBoolean(COMES_FROM_ORGANIZATION, true);
+                bundle.putString(NAME_ORG, orgName.getText().toString().trim());
+                bundle.putString(DESC_ORG, orgDesc.getText().toString().trim());
+                bundle.putString(EMAIL_ORG, orgEmail.getText().toString().trim());
+                bundle.putString(PHONE_ORG, orgPhone.getText().toString().trim());
                 startActivity(intent.putExtras(bundle));
             }
         });

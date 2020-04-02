@@ -21,7 +21,7 @@ public class OrganizationRegViewModel extends BaseViewModel<Organization> {
     public static final int PHONE_SIZE = 9;
     public static final String FORMAT_EMAIL = "@";
 
-    private MutableLiveData<OrganizationRegFormState> organizationFormState = new MutableLiveData<>();
+    private MutableLiveData<OrgRegFormState> organizationFormState = new MutableLiveData<>();
 
     private MutableLiveData<List<Organization>> organizations;
     private FirebaseFirestore db;
@@ -31,7 +31,7 @@ public class OrganizationRegViewModel extends BaseViewModel<Organization> {
         organizations = new MutableLiveData<>();
     }
 
-    public LiveData<OrganizationRegFormState> getOrganizationFormState() {
+    public LiveData<OrgRegFormState> getOrganizationFormState() {
         return organizationFormState;
     }
 

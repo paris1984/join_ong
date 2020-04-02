@@ -1,6 +1,6 @@
 package es.pjd.data.model;
 
-public enum FieldOrganization {
+public enum FieldOrganization{
     NAME("name"), DESCRIPTION("description"), EMAIL("email"), PHONE("phone"), NO_INFO("");
 
     private String fieldOrganization;

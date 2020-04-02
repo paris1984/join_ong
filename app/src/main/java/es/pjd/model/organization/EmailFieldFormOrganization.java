@@ -5,15 +5,15 @@ import es.pjd.R;
 public class EmailFieldFormOrganization implements IEmailStateFormOrganization {
 
     @Override
-    public OrganizationRegFormState getStatusIsNullOrEmpty() {
-        return OrganizationRegFormState.builder()
+    public OrgRegFormState getStatusIsNullOrEmpty() {
+        return OrgRegFormState.builder()
                 .withNameError(null)
                 .withDescriptionError(null).withEmailError(R.string.empty_email).withPhoneError(null).build();
     }
 
     @Override
-    public OrganizationRegFormState getStatusPatternNotValid() {
-        return   OrganizationRegFormState.builder()
+    public OrgRegFormState getStatusPatternNotValid() {
+        return   OrgRegFormState.builder()
                 .withNameError(null)
                 .withDescriptionError(null).withEmailError(R.string.invalid_username).withPhoneError(null).build();
     }

@@ -58,8 +58,8 @@ public class OrganizationRegFormState {
         return isDataValid;
     }
 
-    public void setDataValid(boolean dataValid) {
-        isDataValid = dataValid;
+    public void setIsDataValid(boolean isDataValid) {
+        this.isDataValid = isDataValid;
     }
 
     @Override
@@ -68,10 +68,10 @@ public class OrganizationRegFormState {
         if (o == null || getClass() != o.getClass()) return false;
         OrganizationRegFormState that = (OrganizationRegFormState) o;
         return isDataValid == that.isDataValid &&
-                Objects.equals(nameError, that.nameError) &&
-                Objects.equals(descriptionError, that.descriptionError) &&
-                Objects.equals(emailError, that.emailError) &&
-                Objects.equals(phoneError, that.phoneError);
+                nameError.equals(that.nameError) &&
+                descriptionError.equals(that.descriptionError) &&
+                emailError.equals(that.emailError) &&
+                phoneError.equals(that.phoneError);
     }
 
     @Override
@@ -143,7 +143,7 @@ public class OrganizationRegFormState {
             organizationRegFormState.setDescriptionError(this.descriptionError);
             organizationRegFormState.setEmailError(this.emailError);
             organizationRegFormState.setPhoneError(this.phoneError);
-            organizationRegFormState.setDataValid(this.isDataValid);
+            organizationRegFormState.setIsDataValid(this.isDataValid);
             return organizationRegFormState;
         }
     }
