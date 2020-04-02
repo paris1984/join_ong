@@ -58,26 +58,26 @@ public class OrganizationRegViewModel extends BaseViewModel<Organization>{
                 case NAME:
                     organizationFormState.setValue(
                             OrganizationRegFormState.builder()
-                                    .withNameError(R.string.empty_username)
+                                    .withNameError(R.string.empty_field)
                                     .withDescriptionError(null).withEmailError(null).withPhoneError(null).build());
                     break;
                 case DESCRIPTION:
                     organizationFormState.setValue(
                             OrganizationRegFormState.builder()
                                     .withNameError(null)
-                                    .withDescriptionError(R.string.empty_username).withEmailError(null).withPhoneError(null).build());
+                                    .withDescriptionError(R.string.empty_field).withEmailError(null).withPhoneError(null).build());
                     break;
                 case EMAIL:
                     organizationFormState.setValue(
                             OrganizationRegFormState.builder()
                                     .withNameError(null)
-                                    .withDescriptionError(null).withEmailError(R.string.empty_username).withPhoneError(null).build());
+                                    .withDescriptionError(null).withEmailError(R.string.empty_field).withPhoneError(null).build());
                     break;
                 case PHONE:
                     organizationFormState.setValue(
                             OrganizationRegFormState.builder()
                                     .withNameError(null)
-                                    .withDescriptionError(null).withEmailError(null).withPhoneError(R.string.empty_username).build());
+                                    .withDescriptionError(null).withEmailError(null).withPhoneError(R.string.empty_field).build());
                     break;
             }
         }
