@@ -17,8 +17,8 @@ import androidx.lifecycle.ViewModelProviders;
 import java.util.Objects;
 
 import es.pjd.R;
-import es.pjd.model.OrganizationRegFormState;
-import es.pjd.model.OrganizationRegViewModel;
+import es.pjd.model.organization.OrganizationRegFormState;
+import es.pjd.model.organization.OrganizationRegViewModel;
 
 public class OrganizationRegActivity extends AppCompatActivity {
 

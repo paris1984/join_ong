@@ -1,4 +1,4 @@
-package es.pjd.model;
+package es.pjd.model.organization;
 
 import androidx.annotation.Nullable;
 
