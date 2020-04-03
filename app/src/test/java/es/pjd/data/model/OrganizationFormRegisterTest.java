@@ -4,11 +4,11 @@ import es.pjd.common.AbstractModelBeanTest;
 
 public class OrganizationFormRegisterTest extends AbstractModelBeanTest<OrganizationFormRegister> {
 
-    public static final String NAME = "name";
-    public static final String DESCRIPTION = "description";
-    public static final String EMAIL = "email";
-    public static final String PHONE = "phone";
-    public static final String OTHER_EMAIL = "other_email";
+    private static final String NAME = "name";
+    private static final String DESCRIPTION = "description";
+    private static final String EMAIL = "email";
+    private static final String PHONE = "phone";
+    private static final String OTHER_EMAIL = "other_email";
 
     @Override
     public void initEntities() {

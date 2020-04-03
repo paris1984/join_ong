@@ -7,7 +7,7 @@ public class OrganizationFormRegister extends BasicFormRegister {
 
     private final String description;
 
-    protected OrganizationFormRegister(OrganizationFormRegisterBuilder builder) {
+    private OrganizationFormRegister(OrganizationFormRegisterBuilder builder) {
         super(builder);
         this.description = builder.description;
     }

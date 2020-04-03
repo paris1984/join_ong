@@ -33,6 +33,7 @@ public class AdministratorFormRegister extends AbstractBasicFormRegister {
         return new AdministratorFormRegisterBuilder();
     }
 
+    @Override
     public AdministratorFormRegisterBuilder cloneBuilder(){
         return new AdministratorFormRegisterBuilder().withName(this.getName())
                 .withSurname(this.getSurname()).withNick(this.getNick())

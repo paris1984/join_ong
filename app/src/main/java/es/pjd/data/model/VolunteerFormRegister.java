@@ -42,6 +42,7 @@ public class VolunteerFormRegister extends AbstractBasicFormRegister {
         return new VolunteerFormRegisterBuilder();
     }
 
+    @Override
     public VolunteerFormRegisterBuilder cloneBuilder(){
         return new VolunteerFormRegisterBuilder().withName(this.getName())
                 .withSurname(this.getSurname()).withNick(this.getNick())

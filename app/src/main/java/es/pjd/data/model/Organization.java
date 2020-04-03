@@ -38,6 +38,7 @@ public class Organization extends BasicRegForm{
         return new OrganizationBuilder();
     }
 
+    @Override
     public OrganizationBuilder cloneBuilder(){
         return new OrganizationBuilder()
                 .withName(this.name)

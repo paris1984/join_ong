@@ -4,13 +4,13 @@ import es.pjd.common.AbstractModelBeanTest;
 
 public class AdministratorFormRegisterTest extends AbstractModelBeanTest<AdministratorFormRegister> {
 
-    public static final String NAME = "name";
-    public static final String SURNAME = "surname";
-    public static final String NICK = "nick";
-    public static final String EMAIL = "email";
-    public static final String PASSWORD = "password";
-    public static final String PHONE = "phone";
-    public static final String OTHER_EMAIL = "other_email";
+    private static final String NAME = "name";
+    private static final String SURNAME = "surname";
+    private static final String NICK = "nick";
+    private static final String EMAIL = "email";
+    private static final String PASSWORD = "password";
+    private static final String PHONE = "phone";
+    private static final String OTHER_EMAIL = "other_email";
 
     @Override
     public void initEntities() {

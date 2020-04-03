@@ -50,11 +50,13 @@ public abstract class BasicFormRegister extends AbstractModelBean {
                 .toHashCode();
     }
 
-    protected abstract static class BasicFormRegisterBuilder<T extends BasicFormRegisterBuilder<T>>{
+    public abstract <T extends BasicFormRegisterBuilder> T cloneBuilder();
 
-        protected String name;
-        protected String email;
-        protected String phone;
+    public abstract static class BasicFormRegisterBuilder<T extends BasicFormRegisterBuilder<T>>{
+
+        private String name;
+        private String email;
+        private String phone;
 
         public T withName(final String name){
             this.name = name;

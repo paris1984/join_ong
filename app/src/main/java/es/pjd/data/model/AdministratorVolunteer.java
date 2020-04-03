@@ -61,6 +61,7 @@ public class AdministratorVolunteer extends BasicRegForm{
         return new AdministratorVolunteerBuilder();
     }
 
+    @Override
     public AdministratorVolunteerBuilder cloneBuilder(){
         return new AdministratorVolunteerBuilder()
             .withName(this.name)
