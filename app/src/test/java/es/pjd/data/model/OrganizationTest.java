@@ -1,12 +1,6 @@
 package es.pjd.data.model;
 
-import org.junit.Before;
-import org.junit.Test;
-
-import es.pjd.common.AbstractModelBean;
 import es.pjd.common.AbstractModelBeanTest;
-
-import static org.junit.Assert.*;
 
 public class OrganizationTest extends AbstractModelBeanTest<Organization> {
 

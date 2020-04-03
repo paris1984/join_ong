@@ -1,7 +1,6 @@
 package es.pjd.model.administrator;
 
 import es.pjd.R;
-import es.pjd.data.model.BasicRegForm;
 
 public class NameFieldFormAdministrator implements IStateFieldFromAdministrator {
 
