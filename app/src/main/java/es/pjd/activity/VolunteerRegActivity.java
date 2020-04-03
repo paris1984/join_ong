@@ -37,7 +37,7 @@ public class VolunteerRegActivity extends AppCompatActivity {
     public static final String NAME_ORG = "nameOrgantization";
     public static final String DESC_ORG = "descriptionOrgantization";
     public static final String EMAIL_ORG = "emailOrgantization";
-    public static final String PHONE_ORG = "emailOrgantization";
+    public static final String PHONE_ORG = "phoneOrgantization";
 
     private FirebaseAuth mAuth;
     private UserViewModel userViewModel;
