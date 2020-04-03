@@ -4,16 +4,34 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import es.pjd.data.model.Event;
+
 public class HomeViewModel extends ViewModel {
 
-    private MutableLiveData<String> mText;
+    private MutableLiveData<List<Event>> events;
 
     public HomeViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        events = new MutableLiveData<>();
+        List<Event> eventsCreate = new ArrayList<>();
+        eventsCreate.add(new Event(new Date(),"Visita a la paz"));
+        eventsCreate.add(new Event(new Date(),"Visita a la paz 2"));
+        eventsCreate.add(new Event(new Date(),"Visita a la paz"));
+        eventsCreate.add(new Event(new Date(),"Visita a la paz 2"));eventsCreate.add(new Event(new Date(),"Visita a la paz"));
+        eventsCreate.add(new Event(new Date(),"Visita a la paz 2"));eventsCreate.add(new Event(new Date(),"Visita a la paz"));
+        eventsCreate.add(new Event(new Date(),"Visita a la paz 2"));eventsCreate.add(new Event(new Date(),"Visita a la paz"));
+        eventsCreate.add(new Event(new Date(),"Visita a la paz 2"));eventsCreate.add(new Event(new Date(),"Visita a la paz"));
+        eventsCreate.add(new Event(new Date(),"Visita a la paz 2"));eventsCreate.add(new Event(new Date(),"Visita a la paz"));
+        eventsCreate.add(new Event(new Date(),"Visita a la paz 2"));eventsCreate.add(new Event(new Date(),"Visita a la paz"));
+        eventsCreate.add(new Event(new Date(),"Visita a la paz 2"));eventsCreate.add(new Event(new Date(),"Visita a la paz"));
+        eventsCreate.add(new Event(new Date(),"Visita a la paz 2"));
+        events.setValue(eventsCreate);
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public LiveData<List<Event>> getEvents() {
+        return events;
     }
 }
