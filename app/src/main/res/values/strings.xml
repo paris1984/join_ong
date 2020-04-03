@@ -63,6 +63,17 @@
     <string name="text_description_organization">Descripción organización</string>
     <string name="text_email_organization">Email organización</string>
     <string name="text_phone_organization">Teléfono organización</string>
+
+    <string name="empty_name">Campo nombre obligatorio</string>
+    <string name="empty_surname">Campo apellidos obligatorio</string>
+    <string name="empty_nick">Campo nick obligatorio</string>
+    <string name="empty_description">Campo descripción obligatorio</string>
+    <string name="empty_email">Campo email obligatorio</string>
+    <string name="empty_password">Campo contraseña obligatorio</string>
+    <string name="empty_password_conf">Campo confirmar contraseña  obligatorio</string>
+    <string name="invalid_password_password_conf">Campo contraseña y confirmación contraseña debe ser iguales</string>
+    <string name="empty_phone">Campo teléfono obligatorio</string>
+    <string name="invalid_phone">Campo teléfono debe tener un tamaño de 9 dígitos</string>
     <!-- end View activity_organization_reg-->
 
     <!-- View activity_volunteer_reg-->

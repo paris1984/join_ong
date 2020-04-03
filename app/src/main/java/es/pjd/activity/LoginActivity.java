@@ -27,8 +27,8 @@ import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseUser;
 
 import es.pjd.R;
-import es.pjd.viewmodel.LoginFormState;
-import es.pjd.viewmodel.LoginViewModel;
+import es.pjd.model.LoginFormState;
+import es.pjd.model.LoginViewModel;
 
 
 public class LoginActivity extends AppCompatActivity {
