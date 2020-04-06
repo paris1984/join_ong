@@ -26,10 +26,13 @@ import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Objects;
 
+import javax.inject.Inject;
+
 import es.pjd.R;
 import es.pjd.model.UserViewModel;
 import es.pjd.model.administrator.AdministratorRegFormState;
 import es.pjd.model.administrator.AdministratorRegViewModel;
+import es.pjd.viewmodel.ViewModelFactory;
 
 public class VolunteerRegActivity extends AppCompatActivity {
 
@@ -40,9 +43,13 @@ public class VolunteerRegActivity extends AppCompatActivity {
     public static final String PHONE_ORG = "phoneOrgantization";
 
     private FirebaseAuth mAuth;
-    private UserViewModel userViewModel;
     private AdministratorRegViewModel administratorRegViewModel;
     private ProgressBar loadingProgressBar;
+
+    /** Variable a injectar */
+    @Inject
+    ViewModelFactory mViewModelFactory;
+    UserViewModel userViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +58,7 @@ public class VolunteerRegActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         mAuth = FirebaseAuth.getInstance();
-        userViewModel = new UserViewModel();
+        //userViewModel = new UserViewModel();
 
         loadingProgressBar = findViewById(R.id.loading);
         final CardView volCardView = findViewById(R.id.volCardView);
@@ -185,6 +192,11 @@ public class VolunteerRegActivity extends AppCompatActivity {
             });
 
         }
+
+
+        //DaggerApplicationComponent.create().inject(this); <-- Crear metodo inject para esta actividad
+        //userViewModel = ViewModelProviders.of(this, mViewModelFactory).get(UserViewModel.class);
+        
     }
 
     @Override

@@ -18,13 +18,21 @@ import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Objects;
 
+import javax.inject.Inject;
+
 import es.pjd.R;
+import es.pjd.dagger.DaggerApplicationComponent;
 import es.pjd.model.UserViewModel;
+import es.pjd.viewmodel.ViewModelFactory;
 
 public class RegisterActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    private UserViewModel userViewModel;
+
+    /** Variable a injectar */
+    @Inject
+    ViewModelFactory mViewModelFactory;
+    UserViewModel userViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +71,8 @@ public class RegisterActivity extends AppCompatActivity {
         //
         mAuth = FirebaseAuth.getInstance();
 
-        userViewModel = new UserViewModel();
+        //DaggerApplicationComponent.create().inject(this); <-- Crear metodo inject para esta actividad
+        //userViewModel = ViewModelProviders.of(this, mViewModelFactory).get(UserViewModel.class);
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
     }

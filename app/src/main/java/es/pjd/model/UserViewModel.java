@@ -18,17 +18,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.inject.Inject;
+
 import es.pjd.data.model.User;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class UserViewModel extends BaseViewModel<User> {
     private MutableLiveData<List<User>> users;
-    private FirebaseFirestore db;
+    //private FirebaseFirestore db;
     private FirebaseAuth auth;
 
-    public UserViewModel(){
-        db = getDB();
+    public UserViewModel(){}
+
+    @Inject
+    public UserViewModel(FirebaseFirestore firebaseFirestore){
+        super(firebaseFirestore);
+        //db = getDB();
         users = new MutableLiveData<>();
         auth = FirebaseAuth.getInstance();
     }
@@ -56,7 +62,7 @@ public class UserViewModel extends BaseViewModel<User> {
     }
 
     public LiveData<List<User>> getUserOrganizationPermissionsById(String id){
-        db.collection("users").document(id).collection("organizations")
+        getDB().collection("users").document(id).collection("organizations")
                 .get()
                 .addOnCompleteListener(getOnCompleteListenerForRead());
         return users;
@@ -91,7 +97,8 @@ public class UserViewModel extends BaseViewModel<User> {
                 mapFromDB.get("surname").toString(),
                 mapFromDB.get("nick").toString(),
                 mapFromDB.get("phone").toString(),
-                mapFromDB.get("email").toString());
+                mapFromDB.get("email").toString(),
+                new HashMap<>());
     }
 
     @Override

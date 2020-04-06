@@ -3,13 +3,10 @@ package es.pjd.model;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -18,23 +15,24 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import es.pjd.data.model.User;
+import javax.inject.Inject;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public abstract class BaseViewModel<Model> extends ViewModel {
-    private FirebaseFirestore firebaseFirestore;
+    protected FirebaseFirestore firebaseFirestore;
 
     protected abstract String getRootNode();
     protected abstract Model mapToModel(Map<String, Object> mapFromDB);
     protected abstract MutableLiveData<List<Model>> getModels();
 
-    public BaseViewModel(){
-        firebaseFirestore = FirebaseFirestore.getInstance();
+    public BaseViewModel(){}
+
+    public BaseViewModel(FirebaseFirestore firebaseFirestore){
+        this.firebaseFirestore = firebaseFirestore;
     }
 
     protected FirebaseFirestore getDB(){
