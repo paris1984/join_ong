@@ -43,7 +43,7 @@ public class VolunteerRegActivity extends AppCompatActivity {
     public static final String PHONE_ORG = "phoneOrgantization";
 
     private FirebaseAuth mAuth;
-    private UserViewModel userViewModel;
+    //private UserViewModel userViewModel;
     private AdministratorVolunteerRegViewModel administratorVolunteerRegViewModel;
     private ProgressBar loadingProgressBar;
 
