@@ -27,7 +27,7 @@ import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseUser;
 
 import es.pjd.R;
-import es.pjd.model.LoginFormState;
+import es.pjd.data.state.LoginFormState;
 import es.pjd.model.LoginViewModel;
 
 

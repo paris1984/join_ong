@@ -30,9 +30,9 @@ import javax.inject.Inject;
 
 import es.pjd.R;
 import es.pjd.model.UserViewModel;
-import es.pjd.model.administrator.AdministratorRegFormState;
-import es.pjd.model.administrator.AdministratorRegViewModel;
 import es.pjd.viewmodel.ViewModelFactory;
+import es.pjd.data.state.AdministratorVolunteerRegFormState;
+import es.pjd.model.AdministratorVolunteerRegViewModel;
 
 public class VolunteerRegActivity extends AppCompatActivity {
 
@@ -43,7 +43,8 @@ public class VolunteerRegActivity extends AppCompatActivity {
     public static final String PHONE_ORG = "phoneOrgantization";
 
     private FirebaseAuth mAuth;
-    private AdministratorRegViewModel administratorRegViewModel;
+    private UserViewModel userViewModel;
+    private AdministratorVolunteerRegViewModel administratorVolunteerRegViewModel;
     private ProgressBar loadingProgressBar;
 
     /** Variable a injectar */
@@ -78,34 +79,34 @@ public class VolunteerRegActivity extends AppCompatActivity {
             volCardView.setVisibility(View.GONE);
             admCardView.setVisibility(View.VISIBLE);
 
-            administratorRegViewModel = ViewModelProviders.of(this).get(AdministratorRegViewModel.class);
-            administratorRegViewModel.getAdministratorRegFormState().observe(this, new Observer<AdministratorRegFormState>() {
+            administratorVolunteerRegViewModel = ViewModelProviders.of(this).get(AdministratorVolunteerRegViewModel.class);
+            administratorVolunteerRegViewModel.getAdministratorVolunteerRegFormState().observe(this, new Observer<AdministratorVolunteerRegFormState>() {
                 @Override
-                public void onChanged(@Nullable AdministratorRegFormState administratorRegFormState) {
-                    if (administratorRegFormState == null) {
+                public void onChanged(@Nullable AdministratorVolunteerRegFormState administratorVolunteerRegFormState) {
+                    if (administratorVolunteerRegFormState == null) {
                         return;
                     }
-                    admBtnAccept.setEnabled(administratorRegFormState.isDataValid());
-                    if(administratorRegFormState.getNameError() != null){
-                        admName.setError(getString(administratorRegFormState.getNameError()));
+                    admBtnAccept.setEnabled(administratorVolunteerRegFormState.isDataValid());
+                    if(administratorVolunteerRegFormState.getNameError() != null){
+                        admName.setError(getString(administratorVolunteerRegFormState.getNameError()));
                     }
-                    if(administratorRegFormState.getSurnameError() != null){
-                        admSurname.setError(getString(administratorRegFormState.getSurnameError()));
+                    if(administratorVolunteerRegFormState.getSurnameError() != null){
+                        admSurname.setError(getString(administratorVolunteerRegFormState.getSurnameError()));
                     }
-                    if(administratorRegFormState.getNickError() != null){
-                        admNick.setError(getString(administratorRegFormState.getNickError()));
+                    if(administratorVolunteerRegFormState.getNickError() != null){
+                        admNick.setError(getString(administratorVolunteerRegFormState.getNickError()));
                     }
-                    if(administratorRegFormState.getEmailError() != null){
-                        admEmail.setError(getString(administratorRegFormState.getEmailError()));
+                    if(administratorVolunteerRegFormState.getEmailError() != null){
+                        admEmail.setError(getString(administratorVolunteerRegFormState.getEmailError()));
                     }
-                    if(administratorRegFormState.getPasswordError() != null){
-                        admPassword.setError(getString(administratorRegFormState.getPasswordError()));
+                    if(administratorVolunteerRegFormState.getPasswordError() != null){
+                        admPassword.setError(getString(administratorVolunteerRegFormState.getPasswordError()));
                     }
-                    if(administratorRegFormState.getPasswordConfError() != null){
-                        admConfPassword.setError(getString(administratorRegFormState.getPasswordConfError()));
+                    if(administratorVolunteerRegFormState.getPasswordConfError() != null){
+                        admConfPassword.setError(getString(administratorVolunteerRegFormState.getPasswordConfError()));
                     }
-                    if(administratorRegFormState.getPhoneError() != null){
-                        admPhone.setError(getString(administratorRegFormState.getPhoneError()));
+                    if(administratorVolunteerRegFormState.getPhoneError() != null){
+                        admPhone.setError(getString(administratorVolunteerRegFormState.getPhoneError()));
                     }
                     loadingProgressBar.setVisibility(View.GONE);
                 }
@@ -122,10 +123,12 @@ public class VolunteerRegActivity extends AppCompatActivity {
 
                 @Override
                 public void afterTextChanged(Editable s) {
-                    administratorRegViewModel.administratorDataChanged(admName.getText().toString(), admSurname.getText().toString(),
-                            admNick.getText().toString(), admEmail.getText().toString(),
-                            admPassword.getText().toString(), admConfPassword.getText().toString(),
-                            admPhone.getText().toString());
+                    administratorVolunteerRegViewModel.administratorDataChanged(
+                        admName.getText().toString(), admSurname.getText().toString(),
+                        admNick.getText().toString(), admEmail.getText().toString(),
+                        admPassword.getText().toString(), admConfPassword.getText().toString(),
+                        admPhone.getText().toString()
+                    );
                 }
             };
 
@@ -178,9 +181,88 @@ public class VolunteerRegActivity extends AppCompatActivity {
             final EditText identOrg = findViewById(R.id.identOrg);
             final Button volBtnAccept = findViewById(R.id.volBtnAccept);
 
+            volCardView.setVisibility(View.GONE);
+            volCardView.setVisibility(View.VISIBLE);
+
+            administratorVolunteerRegViewModel = ViewModelProviders.of(this).get(AdministratorVolunteerRegViewModel.class);
+            administratorVolunteerRegViewModel.getAdministratorVolunteerRegFormState().observe(this, new Observer<AdministratorVolunteerRegFormState>() {
+                @Override
+                public void onChanged(@Nullable AdministratorVolunteerRegFormState administratorVolunteerRegFormState) {
+                    if (administratorVolunteerRegFormState == null) {
+                        return;
+                    }
+                    volBtnAccept.setEnabled(administratorVolunteerRegFormState.isDataValid());
+                    if(administratorVolunteerRegFormState.getNameError() != null){
+                        volName.setError(getString(administratorVolunteerRegFormState.getNameError()));
+                    }
+                    if(administratorVolunteerRegFormState.getSurnameError() != null){
+                        volSurname.setError(getString(administratorVolunteerRegFormState.getSurnameError()));
+                    }
+                    if(administratorVolunteerRegFormState.getNickError() != null){
+                        volNick.setError(getString(administratorVolunteerRegFormState.getNickError()));
+                    }
+                    if(administratorVolunteerRegFormState.getEmailError() != null){
+                        volEmail.setError(getString(administratorVolunteerRegFormState.getEmailError()));
+                    }
+                    if(administratorVolunteerRegFormState.getPasswordError() != null){
+                        volPassword.setError(getString(administratorVolunteerRegFormState.getPasswordError()));
+                    }
+                    if(administratorVolunteerRegFormState.getPasswordConfError() != null){
+                        volConfPassword.setError(getString(administratorVolunteerRegFormState.getPasswordConfError()));
+                    }
+                    if(administratorVolunteerRegFormState.getPhoneError() != null){
+                        volPhone.setError(getString(administratorVolunteerRegFormState.getPhoneError()));
+                    }
+                    if(administratorVolunteerRegFormState.getIdOrganizationError() != null){
+                        identOrg.setError(getString(administratorVolunteerRegFormState.getIdOrganizationError()));
+                    }
+                    loadingProgressBar.setVisibility(View.GONE);
+                }
+            });
+
+            TextWatcher afterTextChangedListener = new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                    administratorVolunteerRegViewModel.volunteerDataChanged(
+                        volName.getText().toString(), volSurname.getText().toString(),
+                        volNick.getText().toString(), volEmail.getText().toString(),
+                        volPassword.getText().toString(), volConfPassword.getText().toString(),
+                        volPhone.getText().toString(), identOrg.getText().toString()
+                    );
+                }
+            };
+
+            volName.addTextChangedListener(afterTextChangedListener);
+            volSurname.addTextChangedListener(afterTextChangedListener);
+            volNick.addTextChangedListener(afterTextChangedListener);
+            volEmail.addTextChangedListener(afterTextChangedListener);
+            volPassword.addTextChangedListener(afterTextChangedListener);
+            volConfPassword.addTextChangedListener(afterTextChangedListener);
+            volConfPassword.addTextChangedListener(afterTextChangedListener);
+            volPhone.addTextChangedListener(afterTextChangedListener);
+            identOrg.addTextChangedListener(afterTextChangedListener);
+
+
             volBtnAccept.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
+                    Log.d("Guadado Voluntario", "nombre: " + volName.getText().toString().trim() +
+                            " surname: " + volSurname.getText().toString().trim() +
+                            " email: " + volEmail.getText().toString().trim() +
+                            " password: " +  volPassword.getText().toString().trim() +
+                            " phone: " + volPhone.getText().toString().trim() +
+                            " nick: " + volNick.getText().toString().trim() +
+                            " idOrg: " + identOrg.getText().toString().trim());
+
+                    /*
                     registerVolunteer(volName.getText().toString(),
                             volSurname.getText().toString(),
                             volEmail.getText().toString(),
@@ -188,6 +270,7 @@ public class VolunteerRegActivity extends AppCompatActivity {
                             volPhone.getText().toString(),
                             volNick.getText().toString(),
                             identOrg.getText().toString());
+                     */
                 }
             });
 

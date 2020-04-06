@@ -46,6 +46,8 @@ public abstract class BasicRegForm extends AbstractModelBean {
                 .toHashCode();
     }
 
+    public abstract <T extends BasicRegFormBuilder> T cloneBuilder();
+
     public interface IBasicRegFormBuilder{
         BasicRegForm build();
     }

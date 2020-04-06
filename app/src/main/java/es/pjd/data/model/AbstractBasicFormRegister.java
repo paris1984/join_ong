@@ -56,9 +56,9 @@ public abstract class AbstractBasicFormRegister extends BasicFormRegister {
 
     public static abstract class AbstractBasicFormRegisterBuilder<T extends AbstractBasicFormRegisterBuilder<T>> extends BasicFormRegisterBuilder<T>{
 
-        protected String surname;
-        protected String nick;
-        protected String password;
+        private String surname;
+        private String nick;
+        private String password;
 
         public T withSurname(final String surname){
             this.surname = surname;
