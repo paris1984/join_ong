@@ -1,6 +1,6 @@
-package es.pjd.validator.stage.factory.organization;
+package es.pjd.validator.state.factory.organization;
 
-import es.pjd.validator.stage.OrgRegFormState;
+import es.pjd.validator.state.OrgRegFormState;
 
 public interface IPhoneStateFormOrganization extends IStateFieldFormOrganization{
 

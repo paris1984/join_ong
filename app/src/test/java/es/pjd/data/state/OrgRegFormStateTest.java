@@ -2,7 +2,7 @@ package es.pjd.data.state;
 
 
 import es.pjd.common.AbstractModelBeanTest;
-import es.pjd.validator.stage.OrgRegFormState;
+import es.pjd.validator.state.OrgRegFormState;
 
 public class OrgRegFormStateTest extends AbstractModelBeanTest<OrgRegFormState> {
 

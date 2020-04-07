@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.google.common.base.Strings;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 import java.util.Map;
@@ -14,8 +13,8 @@ import java.util.Map;
 import es.pjd.model.BaseViewModel;
 import es.pjd.validator.data.same.FieldOrganization;
 import es.pjd.validator.data.same.Organization;
-import es.pjd.validator.stage.factory.StateFiledFormOrganizationFactory;
-import es.pjd.validator.stage.OrgRegFormState;
+import es.pjd.validator.state.factory.StateFiledFormOrganizationFactory;
+import es.pjd.validator.state.OrgRegFormState;
 
 public class OrganizationRegValidator extends BaseViewModel<Organization> {
 

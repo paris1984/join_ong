@@ -1,7 +1,7 @@
-package es.pjd.validator.stage.factory.administratorvolunteer;
+package es.pjd.validator.state.factory.administratorvolunteer;
 
 import es.pjd.R;
-import es.pjd.validator.stage.AdministratorVolunteerRegFormState;
+import es.pjd.validator.state.AdministratorVolunteerRegFormState;
 
 public class PhoneFieldFormAdmistratorVolunteer implements IPhoneStateFormAdministratorVolunteer {
 

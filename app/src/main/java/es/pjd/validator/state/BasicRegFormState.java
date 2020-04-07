@@ -1,4 +1,4 @@
-package es.pjd.validator.stage;
+package es.pjd.validator.state;
 
 import androidx.annotation.Nullable;
 

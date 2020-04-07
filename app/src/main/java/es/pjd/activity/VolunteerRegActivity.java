@@ -31,7 +31,7 @@ import javax.inject.Inject;
 import es.pjd.R;
 import es.pjd.model.UserViewModel;
 import es.pjd.viewmodel.ViewModelFactory;
-import es.pjd.validator.stage.AdministratorVolunteerRegFormState;
+import es.pjd.validator.state.AdministratorVolunteerRegFormState;
 import es.pjd.validator.AdministratorVolunteerRegValidator;
 
 public class VolunteerRegActivity extends AppCompatActivity {

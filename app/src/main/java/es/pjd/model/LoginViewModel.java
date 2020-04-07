@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel;
 import android.util.Patterns;
 
 import es.pjd.R;
-import es.pjd.validator.stage.LoginFormState;
+import es.pjd.validator.state.LoginFormState;
 
 public class LoginViewModel extends ViewModel {
 

@@ -17,7 +17,7 @@ import androidx.lifecycle.ViewModelProviders;
 import java.util.Objects;
 
 import es.pjd.R;
-import es.pjd.validator.stage.OrgRegFormState;
+import es.pjd.validator.state.OrgRegFormState;
 import es.pjd.validator.OrganizationRegValidator;
 
 public class OrganizationRegActivity extends AppCompatActivity {

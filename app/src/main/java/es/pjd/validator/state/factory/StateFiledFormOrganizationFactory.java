@@ -1,15 +1,15 @@
-package es.pjd.validator.stage.factory;
+package es.pjd.validator.state.factory;
 
 import es.pjd.validator.data.same.FieldOrganization;
-import es.pjd.validator.stage.factory.organization.DataValidFieldFormOrganization;
-import es.pjd.validator.stage.factory.organization.DescriptionFieldFormOrganization;
-import es.pjd.validator.stage.factory.organization.EmailFieldFormOrganization;
-import es.pjd.validator.stage.factory.organization.IDataValidStateFormOrganization;
-import es.pjd.validator.stage.factory.organization.IEmailStateFormOrganization;
-import es.pjd.validator.stage.factory.organization.IPhoneStateFormOrganization;
-import es.pjd.validator.stage.factory.organization.IStateFieldFormOrganization;
-import es.pjd.validator.stage.factory.organization.NameFieldFormOrganization;
-import es.pjd.validator.stage.factory.organization.PhoneFieldFormOrganization;
+import es.pjd.validator.state.factory.organization.DataValidFieldFormOrganization;
+import es.pjd.validator.state.factory.organization.DescriptionFieldFormOrganization;
+import es.pjd.validator.state.factory.organization.EmailFieldFormOrganization;
+import es.pjd.validator.state.factory.organization.IDataValidStateFormOrganization;
+import es.pjd.validator.state.factory.organization.IEmailStateFormOrganization;
+import es.pjd.validator.state.factory.organization.IPhoneStateFormOrganization;
+import es.pjd.validator.state.factory.organization.IStateFieldFormOrganization;
+import es.pjd.validator.state.factory.organization.NameFieldFormOrganization;
+import es.pjd.validator.state.factory.organization.PhoneFieldFormOrganization;
 
 public class StateFiledFormOrganizationFactory {
 

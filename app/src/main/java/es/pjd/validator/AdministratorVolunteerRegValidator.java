@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.google.common.base.Strings;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 import java.util.Map;
@@ -14,8 +13,8 @@ import java.util.Map;
 import es.pjd.model.BaseViewModel;
 import es.pjd.validator.data.same.AdministratorVolunteer;
 import es.pjd.validator.data.same.FieldAdministratorVolunteer;
-import es.pjd.validator.stage.AdministratorVolunteerRegFormState;
-import es.pjd.validator.stage.factory.StateFiledFormAdministratorVolunteerFactory;
+import es.pjd.validator.state.AdministratorVolunteerRegFormState;
+import es.pjd.validator.state.factory.StateFiledFormAdministratorVolunteerFactory;
 
 public class AdministratorVolunteerRegValidator extends BaseViewModel<AdministratorVolunteer> {
 

@@ -1,20 +1,20 @@
-package es.pjd.validator.stage.factory;
+package es.pjd.validator.state.factory;
 
 import es.pjd.validator.data.same.FieldAdministratorVolunteer;
-import es.pjd.validator.stage.factory.administratorvolunteer.DataValidFieldFormAdministratorVolunteer;
-import es.pjd.validator.stage.factory.administratorvolunteer.EmailFieldFormAdministratorVolunteer;
-import es.pjd.validator.stage.factory.administratorvolunteer.IDataValidStateFormAdministratorVolunteer;
-import es.pjd.validator.stage.factory.administratorvolunteer.IEmailStateFormAdministratorVolunteer;
-import es.pjd.validator.stage.factory.administratorvolunteer.IPasswordConfStateFormAdministratorVolunteer;
-import es.pjd.validator.stage.factory.administratorvolunteer.IPasswordStateFormAdministratorVolunteer;
-import es.pjd.validator.stage.factory.administratorvolunteer.IPhoneStateFormAdministratorVolunteer;
-import es.pjd.validator.stage.factory.administratorvolunteer.IStateFieldFromAdministratorVolunteer;
-import es.pjd.validator.stage.factory.administratorvolunteer.NameFieldFormAdministratorVolunteer;
-import es.pjd.validator.stage.factory.administratorvolunteer.NickFieldFormAdministratorVolunteer;
-import es.pjd.validator.stage.factory.administratorvolunteer.PasswordConfFieldFormAdministratorVolunteer;
-import es.pjd.validator.stage.factory.administratorvolunteer.PasswordFieldFormAdministratorVolunteer;
-import es.pjd.validator.stage.factory.administratorvolunteer.PhoneFieldFormAdmistratorVolunteer;
-import es.pjd.validator.stage.factory.administratorvolunteer.SurnameFieldFormAdministratorVolunteer;
+import es.pjd.validator.state.factory.administratorvolunteer.DataValidFieldFormAdministratorVolunteer;
+import es.pjd.validator.state.factory.administratorvolunteer.EmailFieldFormAdministratorVolunteer;
+import es.pjd.validator.state.factory.administratorvolunteer.IDataValidStateFormAdministratorVolunteer;
+import es.pjd.validator.state.factory.administratorvolunteer.IEmailStateFormAdministratorVolunteer;
+import es.pjd.validator.state.factory.administratorvolunteer.IPasswordConfStateFormAdministratorVolunteer;
+import es.pjd.validator.state.factory.administratorvolunteer.IPasswordStateFormAdministratorVolunteer;
+import es.pjd.validator.state.factory.administratorvolunteer.IPhoneStateFormAdministratorVolunteer;
+import es.pjd.validator.state.factory.administratorvolunteer.IStateFieldFromAdministratorVolunteer;
+import es.pjd.validator.state.factory.administratorvolunteer.NameFieldFormAdministratorVolunteer;
+import es.pjd.validator.state.factory.administratorvolunteer.NickFieldFormAdministratorVolunteer;
+import es.pjd.validator.state.factory.administratorvolunteer.PasswordConfFieldFormAdministratorVolunteer;
+import es.pjd.validator.state.factory.administratorvolunteer.PasswordFieldFormAdministratorVolunteer;
+import es.pjd.validator.state.factory.administratorvolunteer.PhoneFieldFormAdmistratorVolunteer;
+import es.pjd.validator.state.factory.administratorvolunteer.SurnameFieldFormAdministratorVolunteer;
 
 public class StateFiledFormAdministratorVolunteerFactory {
 
