@@ -17,8 +17,8 @@ import androidx.lifecycle.ViewModelProviders;
 import java.util.Objects;
 
 import es.pjd.R;
-import es.pjd.data.state.OrgRegFormState;
-import es.pjd.model.OrganizationRegViewModel;
+import es.pjd.validator.stage.OrgRegFormState;
+import es.pjd.validator.OrganizationRegValidator;
 
 public class OrganizationRegActivity extends AppCompatActivity {
 
@@ -27,7 +27,7 @@ public class OrganizationRegActivity extends AppCompatActivity {
     public static final String DESC_ORG = "descriptionOrgantization";
     public static final String EMAIL_ORG = "emailOrgantization";
     public static final String PHONE_ORG = "phoneOrgantization";
-    private OrganizationRegViewModel organizationRegViewModel;
+    private OrganizationRegValidator organizationRegValidator;
     private ProgressBar loadingProgressBar;
 
     @Override
@@ -36,7 +36,7 @@ public class OrganizationRegActivity extends AppCompatActivity {
         setContentView(R.layout.activity_organization_reg);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-        organizationRegViewModel = ViewModelProviders.of(this).get(OrganizationRegViewModel.class);
+        organizationRegValidator = ViewModelProviders.of(this).get(OrganizationRegValidator.class);
 
         loadingProgressBar = findViewById(R.id.loading);
         final EditText orgName = findViewById(R.id.orgName);
@@ -45,7 +45,7 @@ public class OrganizationRegActivity extends AppCompatActivity {
         final EditText orgPhone = findViewById(R.id.orgTel);
         final Button btnNext = findViewById(R.id.orgBtnNext);
 
-        organizationRegViewModel.getOrganizationFormState().observe(this, new Observer<OrgRegFormState>() {
+        organizationRegValidator.getOrganizationFormState().observe(this, new Observer<OrgRegFormState>() {
             @Override
             public void onChanged(@Nullable OrgRegFormState organizationRegFormState) {
                 if (organizationRegFormState == null) {
@@ -79,7 +79,7 @@ public class OrganizationRegActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                organizationRegViewModel.organizationDataChanged(orgName.getText().toString(), orgDesc.getText().toString(), orgEmail.getText().toString(), orgPhone.getText().toString());
+                organizationRegValidator.organizationDataChanged(orgName.getText().toString(), orgDesc.getText().toString(), orgEmail.getText().toString(), orgPhone.getText().toString());
             }
         };
 

@@ -1,7 +1,7 @@
 package es.pjd.data.state;
 
 import es.pjd.common.AbstractModelBeanTest;
-import es.pjd.data.state.AdministratorVolunteerRegFormState;
+import es.pjd.validator.stage.AdministratorVolunteerRegFormState;
 
 
 public class AdministratorVolunteerRegFormStateTest extends AbstractModelBeanTest<AdministratorVolunteerRegFormState> {

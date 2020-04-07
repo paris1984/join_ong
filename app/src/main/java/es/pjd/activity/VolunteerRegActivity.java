@@ -31,8 +31,8 @@ import javax.inject.Inject;
 import es.pjd.R;
 import es.pjd.model.UserViewModel;
 import es.pjd.viewmodel.ViewModelFactory;
-import es.pjd.data.state.AdministratorVolunteerRegFormState;
-import es.pjd.model.AdministratorVolunteerRegViewModel;
+import es.pjd.validator.stage.AdministratorVolunteerRegFormState;
+import es.pjd.validator.AdministratorVolunteerRegValidator;
 
 public class VolunteerRegActivity extends AppCompatActivity {
 
@@ -44,7 +44,7 @@ public class VolunteerRegActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     //private UserViewModel userViewModel;
-    private AdministratorVolunteerRegViewModel administratorVolunteerRegViewModel;
+    private AdministratorVolunteerRegValidator administratorVolunteerRegValidator;
     private ProgressBar loadingProgressBar;
 
     /** Variable a injectar */
@@ -79,8 +79,8 @@ public class VolunteerRegActivity extends AppCompatActivity {
             volCardView.setVisibility(View.GONE);
             admCardView.setVisibility(View.VISIBLE);
 
-            administratorVolunteerRegViewModel = ViewModelProviders.of(this).get(AdministratorVolunteerRegViewModel.class);
-            administratorVolunteerRegViewModel.getAdministratorVolunteerRegFormState().observe(this, new Observer<AdministratorVolunteerRegFormState>() {
+            administratorVolunteerRegValidator = ViewModelProviders.of(this).get(AdministratorVolunteerRegValidator.class);
+            administratorVolunteerRegValidator.getAdministratorVolunteerRegFormState().observe(this, new Observer<AdministratorVolunteerRegFormState>() {
                 @Override
                 public void onChanged(@Nullable AdministratorVolunteerRegFormState administratorVolunteerRegFormState) {
                     if (administratorVolunteerRegFormState == null) {
@@ -123,7 +123,7 @@ public class VolunteerRegActivity extends AppCompatActivity {
 
                 @Override
                 public void afterTextChanged(Editable s) {
-                    administratorVolunteerRegViewModel.administratorDataChanged(
+                    administratorVolunteerRegValidator.administratorDataChanged(
                         admName.getText().toString(), admSurname.getText().toString(),
                         admNick.getText().toString(), admEmail.getText().toString(),
                         admPassword.getText().toString(), admConfPassword.getText().toString(),
@@ -184,8 +184,8 @@ public class VolunteerRegActivity extends AppCompatActivity {
             volCardView.setVisibility(View.GONE);
             volCardView.setVisibility(View.VISIBLE);
 
-            administratorVolunteerRegViewModel = ViewModelProviders.of(this).get(AdministratorVolunteerRegViewModel.class);
-            administratorVolunteerRegViewModel.getAdministratorVolunteerRegFormState().observe(this, new Observer<AdministratorVolunteerRegFormState>() {
+            administratorVolunteerRegValidator = ViewModelProviders.of(this).get(AdministratorVolunteerRegValidator.class);
+            administratorVolunteerRegValidator.getAdministratorVolunteerRegFormState().observe(this, new Observer<AdministratorVolunteerRegFormState>() {
                 @Override
                 public void onChanged(@Nullable AdministratorVolunteerRegFormState administratorVolunteerRegFormState) {
                     if (administratorVolunteerRegFormState == null) {
@@ -231,7 +231,7 @@ public class VolunteerRegActivity extends AppCompatActivity {
 
                 @Override
                 public void afterTextChanged(Editable s) {
-                    administratorVolunteerRegViewModel.volunteerDataChanged(
+                    administratorVolunteerRegValidator.volunteerDataChanged(
                         volName.getText().toString(), volSurname.getText().toString(),
                         volNick.getText().toString(), volEmail.getText().toString(),
                         volPassword.getText().toString(), volConfPassword.getText().toString(),
